@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>MARILENEWS</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/marilenews.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Animation -->
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+
+    <!-- Logo -->
+    <link rel="icon" href="images/logo.png" type="image/png" >
+
+    <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+    <script src="dropzone.js"></script>
+
+
+    <link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+    <link rel="stylesheet" href="dropzone.css">
+
+  
+
+</head>
+
+
+
+<body>
+
+
+
+
+<!-- Modal Edit Tourism -->
+
+
+<div class="modal fade" id="myModalea" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            
+
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-undo fa-3x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Edit Tourism</h4> </li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+       
+        <div class="form-group">
+            
+            <div class="form-group">
+               <label>Name</label>
+               <input class="form-control input-sm" placeholder="Enter name">
+           </div>
+
+           <div class="form-group">
+               <label>Location</label>
+               <input class="form-control input-sm" placeholder="Enter location">
+           </div>
+
+           <div class="form-group">
+               <label>Description</label>
+               <input class="form-control input-sm" placeholder="Enter description">
+           </div>
+
+           <div class="form-group">
+               <label>Added by</label>
+               <input class="form-control input-sm" placeholder="Enter Who added">
+           </div>
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+
+      <div class="modal-footer" >
+      <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm">Save</button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal Edit Tourism -->
+
+
+
+
+
+
+<!-- CONTENT ---->
+
+
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <h1 class="page-header animated bounceInRight">
+
+                          <small><i class="fa fa-fw fa-plane fa-2x" id = "conhead"> </i></small>  Update Tourism
+                        </h1>
+                        <ol class="breadcrumb animated bounceInRight" >
+                            <li class="active">
+                                Lets you edit the tourism section.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+
+
+
+
+               <div class="row" >
+                     <div class="col-lg-12">
+                    <br>
+                 
+
+
+                     <div class="table-responsive animated fadeIn" >
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                       <th>Name</th>
+                                       <th>Location</th>
+                                        <th>Description</th> 
+                                        <th>Date added</th>
+                                        <th>Added by</th>
+                                        <th>Action</th>
+                                        
+                                        
+                                       
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>Divine Mercy National Shrine</td>
+                                        <td>Sta. Rosa 1, Marilao , Bulacan</td>
+                                        <td>Church</td>
+
+                                        <td>02 July 15 </td>
+                                        <td>Ryan Santos</td>
+
+                                        <td>
+                                        <a data-toggle = "modal" data-target = "#myModalea" >Edit </a> / 
+                                        <a href  = "#" >Hide </a>       
+
+
+                                        </td>
+
+
+
+                                    </tr>
+
+
+                                   <tr>
+                                        <td>St. Michael the Archangel Parish Church</td>
+                                        <td>Poblacion 1, Marilao , Bulacan</td>
+                                        <td>Church</td>
+
+                                        <td>03 July 15 </td>
+                                        <td>Ryan Santos</td>
+
+                                        <td>
+                                        <a data-toggle = "modal" data-target = "#myModalea" >Edit </a> / 
+                                        <a href  = "#" >Hide </a>       
+
+
+                                        </td>
+
+
+
+                                    </tr>
+
+
+
+
+                                  <tr>
+                                        <td>Hidden Sanctuary Hotel and Resort</td>
+                                        <td>Prenza I, Marilao, Bulacan</td>
+
+                                       <td>Resort</td>
+
+                                       <td>04 July 15 </td>
+                                        <td>Ryan Santos</td>
+
+                                        <td>
+                                        <a data-toggle = "modal" data-target = "#myModalea" >Edit </a> / 
+                                        <a href  = "#" >Hide </a>       
+
+
+                                        </td>
+
+
+
+                                    </tr>
+
+                                    
+
+                                     <tr>
+                                        <td>Dad's Vineyard Resort and Butterfly Garden</td>
+                                        <td>Sta. Rosa II, Marilao, Bulacan</td>
+
+                                        <td>Resort</td>
+                                        <td>05 July 15 </td>
+                                        <td>Ryan Santos</td>
+
+                                        <td>
+                                        <a data-toggle = "modal" data-target = "#myModalea" >Edit </a> / 
+                                        <a href  = "#" >Hide </a>       
+
+
+                                        </td>
+
+
+
+                                    </tr>
+
+
+                                        <tr>
+                                         <td>Balik Bayan Handicrafts</td>
+                                        <td>Abangan Sur, Marilao, Bulacan</td>
+                                        <td>Shops</td>
+                                        <td>06 July 15 </td>
+                                        <td>Ryan Santos</td>
+
+                                        <td>
+                                        <a data-toggle = "modal" data-target = "#myModalea" >Edit </a> / 
+                                        <a href  = "#" >Hide </a>       
+
+
+                                        </td>
+
+
+
+                                    </tr>
+
+
+                                     <tr>
+                                        <td>Halaman Dilaw</td>
+                                        <td>Marilao , Bulacan</td>
+                                        <td>Festival</td>
+                                        <td>07 July 15 </td>
+                                        <td>Ryan Santos</td>
+
+                                        <td>
+                                        <a data-toggle = "modal" data-target = "#myModalea" >Edit </a> / 
+                                        <a href  = "#" >Hide </a>       
+
+
+                                        </td>
+
+
+
+                                    </tr>
+
+                                      <tr>
+                                        <td>Simeona's Pancit Marilao </td>
+                                        <td>Poblacion I, Marilao, Bulacan</td>
+                                        <td>Foods/Specialties</td>
+                                        <td>08 July 15 </td>
+                                        <td>Ryan Santos</td>
+
+                                        <td>
+                                        <a data-toggle = "modal" data-target = "#myModalea" >Edit </a> / 
+                                        <a href  = "#" >Hide </a>       
+
+
+                                        </td>
+
+
+
+                                    </tr>
+
+                                         <tr>
+                                        <td>Marilao Puto "Puto Popular"</td>
+                                        <td>Saog, Marilao, Bulacan</td>
+                                        <td>Foods/Specialties</td>
+                                        <td>09 July 15 </td>
+                                        <td>Ryan Santos</td>
+
+                                        <td>
+                                        <a data-toggle = "modal" data-target = "#myModalea" >Edit </a> / 
+                                        <a href  = "#" >Hide </a>       
+
+
+                                        </td>
+
+
+
+                                    </tr>
+
+
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    
+
+
+
+
+
+
+
+
+               
+                        
+                    </div>
+
+
+
+<!-- CONTENT ---->
+
+ 
+
+            </div>
+
+
+<br><br><br>
+
+
+
+                      
+                        <div class="panel panel-default animated fadeIn" id ="dork">
+
+
+                            <div class="panel-body">
+                               
+                                
+                            
+                        <center>
+                       
+                      <h4 id= "foot1"> MarileNews </h4>
+                          <h4 id= "foot2">  © 2015 || All Rights Reserved</h4>
+
+                        </center>
+
+               
+                <!-- /.row -->
+
+                        </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+
+
+
+   
+<!-- Content ---->
+
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+
+
+</body>
+
+</html>

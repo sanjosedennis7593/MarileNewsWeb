@@ -1,0 +1,1351 @@
+
+
+
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+
+                    <div class="col-lg-12">
+
+                        <h1 class="page-header animated bounceInRight">
+
+                          <small><i class="fa fa-fw fa-map-marker fa-2x" id = "conhead"> </i></small>  Tourist Attraction
+                        </h1>
+                        <ol class="breadcrumb animated bounceInRight">
+                            <li class="active" >
+                                  Lets you view the albums of tourist attractions.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- /.row 
+<script type = "JavaScript">
+
+angular.module('dropZone', [])
+.directive('dropZone', function() {
+  return function(scope, element, attrs) {
+    element.dropzone({ 
+        url: "/desiredupload",
+        maxFilesize: 100,
+        paramName: "uploadfile",
+        maxThumbnailFilesize: 5,
+        init: function() {
+          this.on("addedfile", function(file) { 
+           alert("Added file."); });
+       }
+    });
+  }
+});
+
+angular.module('dropZone', [])
+.controller('dropZoneCtrl', function() {});
+   
+</script>
+
+
+<form action="/upload" drop-zone  callbacks="callbacks" options="dropZoneOptions" class="dropzone"></form>
+-->
+
+<!-- Modal Thumbnails -->
+    <script type="text/ng-template" id="TouristAttractionModal.html"> 
+
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+       
+
+            
+
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-photo fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Photos</h4> </li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-group">
+               &nbsp<label>Name</label>
+               <input class="form-control input-sm" placeholder="Enter name. .." ng-model="editTour.TouristInformation.Name">
+        </div>
+
+        <div class="form-group">
+               &nbsp<label>Location</label>
+               <input class="form-control input-sm" placeholder="Enter location. .." ng-model="editTour.TouristInformation.Location">
+        </div>
+
+         <div class="form-group">
+               &nbsp<label>Description</label>
+               <textarea class="form-control input-sm" placeholder="Enter description..." ng-model="editTour.TouristInformation.Description"></textarea>
+        </div>
+     
+      </div>
+
+
+      <div class="modal-footer" >
+      <div class = "form-group">
+
+      <button type="button" class="btn btn-default btn-sm" ng-click="updateInformation(editTour)">Save</button>  
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+
+      </div>
+      </div>
+    </div>
+
+</script>
+
+<!-- Modal Thumbnails -->
+
+
+
+
+
+
+<!-- Modal New Image -->
+
+    <script type="text/ng-template" id="NewTouristAttraction.html"> 
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+       
+
+            
+
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-photo fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Upload Image</h4> </li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+       
+        <div class="form-group">
+
+
+
+         <div class="form-group">
+               &nbsp<label>Name</label>
+               <input class="form-control input-sm" placeholder="Enter name..." ng-model="tour.locname">
+        </div>
+
+        <div class="form-group">
+               &nbsp<label>Location</label>
+               <input class="form-control input-sm" placeholder="Enter location..." ng-model="tour.location">
+        </div>
+
+         <div class="form-group">
+               &nbsp<label>Description</label>
+               <textarea class="form-control input-sm" placeholder="Enter description..." ng-model="tour.description">
+               </textarea>
+        </div>
+
+<center>
+
+
+
+<ul class = "list-inline">
+
+
+<!-- Cover IMAGE -->
+
+<li>
+<label>Cover Image</label>
+<form novalidate enctype="multipart/form-data">
+
+   
+<img ng-src="{{coverImage[0]}}" width="250" height="150" ng-init="coverImage[0] = def.image" /><br />
+
+<ul class = "list-inline">
+<br>
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input class ="file" type="file" ng-model="coverImage" accept="image/*" multiple app-filereader/> 
+ </span>  
+</li> 
+<!--
+ <li> 
+
+ <button ng-click="coverImage[0] = def.image" ng-show="coverImage!=def.image" class = "file-input btn btn-sm btn-success">Set Default Image
+ </button>
+
+ </li> 
+ -->
+</ul>
+
+<br/>
+
+</form>
+
+
+  </li>
+    
+
+<!-- Cover IMAGE -->
+
+
+
+
+<!-- Route/Map  IMAGE -->
+<li>
+<label>Route/Map Image</label>
+<form novalidate enctype="multipart/form-data">
+
+   
+<img ng-src="{{routeImage[0]}}" width="250" height="150" ng-init="routeImage[0] = def.image" /><br />
+
+<ul class = "list-inline">
+<br>
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input class = "file "type="file" ng-model="routeImage" accept="image/*" multiple app-filereader/> 
+ </span>  
+</li> 
+<!--
+ <li> 
+
+ <button ng-click="routeImage[0] = def.image" ng-show="routeImage!=def.image" class = "file-input btn btn-sm btn-success">Set Default Image
+ </button>
+ 
+ </li> 
+-->
+</ul>
+
+<br/>
+
+</form>
+
+</li>
+
+
+<!-- Route/Map  IMAGE -->
+ 
+
+
+
+<!-- UPLOAD IMAGE -->
+
+
+</ul>
+
+
+
+ <form novalidate enctype="multipart/form-data">
+
+   
+<img ng-repeat="imageArray2 in imageArray | startFrom : 1" ng-src="{{imageArray2[0]}}"  width="75" height="75" /><br />
+
+<ul class = "list-inline">
+<br>
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input class = "file "type="file" ng-model="imageString" accept="image/*" multiple app-filereader/> 
+ </span>  
+</li> 
+<!--
+ <li> 
+
+
+
+ </li> 
+ -->
+</ul>
+
+<br/>
+
+</form>
+
+
+
+</center>
+        </div>
+
+
+
+      </div>
+
+
+
+
+      <div class="modal-footer" >
+      <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm" ng-click="saveTouristAttraction()">Save</button>
+      </div>
+      </div>
+    </div>
+  
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal New -->
+
+ <script type="text/ng-template" id="UpdateCoverRoute.html"> 
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-photo fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Upload Image</h4> </li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+       
+
+<center>
+
+<ul class = "list-inline">
+
+
+<!-- Cover IMAGE -->
+
+<li>
+<label>Cover Image</label>
+<form novalidate enctype="multipart/form-data">
+
+   
+<img ng-src="{{newImage.CoverImage[0]}}" width="250" height="150" ng-init="newImage.CoverImage[0] = editTour.TouristInformation.CoverImage" /><br />
+
+<ul class = "list-inline">
+<br>
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input class = "file "type="file" ng-model="newImage.CoverImage" accept="image/*" multiple app-filereader/> 
+ </span>  
+</li> 
+<!--
+ <li> 
+
+ <button ng-click="coverImage[0] = def.image" ng-show="coverImage!=def.image" class = "file-input btn btn-sm btn-success">Set Default Image
+ </button>
+
+ </li> 
+ -->
+</ul>
+
+<br/>
+
+</form>
+
+  </li>
+    
+<li>
+<label>Route/Map Image</label>
+<form novalidate enctype="multipart/form-data">
+
+   
+<img ng-src="{{newImage.RouteImage[0]}}" width="250" height="150" ng-init="newImage.RouteImage[0] = editTour.TouristInformation.RouteImage" /><br />
+
+<ul class = "list-inline">
+<br>
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input class = "file "type="file" ng-model="newImage.RouteImage" accept="image/*" multiple app-filereader/> 
+ </span>  
+</li> 
+<!--
+ <li> 
+
+ <button ng-click="routeImage[0] = def.image" ng-show="routeImage!=def.image" class = "file-input btn btn-sm btn-success">Set Default Image
+ </button>
+ 
+ </li> 
+-->
+</ul>
+
+<br/>
+
+</form>
+
+</li>
+  <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm" ng-click="updateImages(editTour)">Save</button>
+      </div>
+
+
+ 
+
+
+ <!--
+
+<!-- UPLOAD IMAGE -->
+
+
+</ul>
+
+</center>
+        </div>
+      </div>
+
+    </div>
+  
+</script>
+
+<script type="text/ng-template" id="UpdateCoverRoute.html"> 
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-photo fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Upload Image</h4> </li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+       
+
+<center>
+
+<ul class = "list-inline">
+
+
+
+
+<!-- Cover IMAGE -->
+
+<li>
+<label>Cover Image</label>
+<form novalidate enctype="multipart/form-data">
+
+   
+<img ng-src="{{newImage.CoverImage[0]}}" width="250" height="150" ng-init="newImage.CoverImage[0] = editTour.TouristInformation.CoverImage" /><br />
+
+<ul class = "list-inline">
+<br>
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input class = "file "type="file" ng-model="newImage.CoverImage" accept="image/*" multiple app-filereader/> 
+ </span>  
+</li> 
+<!--
+ <li> 
+
+ <button ng-click="coverImage[0] = def.image" ng-show="coverImage!=def.image" class = "file-input btn btn-sm btn-success">Set Default Image
+ </button>
+
+ </li> 
+ -->
+</ul>
+
+<br/>
+
+</form>
+
+  </li>
+    
+<li>
+<label>Route/Map Image</label>
+<form novalidate enctype="multipart/form-data">
+
+   
+<img ng-src="{{newImage.RouteImage[0]}}" width="250" height="150" ng-init="newImage.RouteImage[0] = editTour.TouristInformation.RouteImage" /><br />
+
+<ul class = "list-inline">
+<br>
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input class = "file "type="file" ng-model="newImage.RouteImage" accept="image/*" multiple app-filereader/> 
+ </span>  
+</li> 
+<!--
+ <li> 
+
+ <button ng-click="routeImage[0] = def.image" ng-show="routeImage!=def.image" class = "file-input btn btn-sm btn-success">Set Default Image
+ </button>
+ 
+ </li> 
+-->
+</ul>
+
+<br/>
+
+</form>
+
+</li>
+  <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm" ng-click="updateImages(editTour)">Save</button>
+      </div>
+
+
+ 
+<!-- UPLOAD IMAGE -->
+
+
+</ul>
+
+</center>
+        </div>
+      </div>
+
+    </div>
+  
+</script>
+
+
+<!-- View Gallery Modal -->
+
+
+<script type="text/ng-template" id="ImageGallery.html"> 
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-photo fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Upload Image</h4> </li>
+ 
+</ul>
+      </div>
+
+
+      <div class="modal-body">
+       
+
+<center>
+
+<ul class = "list-inline">
+
+
+<!-- Cover IMAGE -->
+
+    
+<li>
+<label>Image Gallery</label>
+  <br>
+  
+  <div class="row"> 
+                        
+     <div class = "col-md-12">
+
+<div class="row">
+  <div class="col-xs-6 col-md-3" dir-paginate="(key,val) in editTour.ImageGallery | itemsPerPage: 9" repeat-loading pagination-id="uploadPagination">
+   <center>
+      <img class="thumbnail" src="{{val.Image}}" width="120" height="120">
+      </center>
+<button type="button" class="btn btn-primary btn-sm" ng-click="deleteImage(key,val)">Delete</button>
+ 
+</div>
+
+  <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                            
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="uploadPagination" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+
+</div>   
+
+</li>
+
+<br><br><br>
+  <div class = "form-group">
+      
+        <span class="file-input btn btn-sm btn-primary btn-file" ng-disabled="Object.keys(editTour.ImageGallery).length>=10">Pick an image-file<input class = "file "type="file" ng-model="newImage" accept="image/*" ng-disabled="Object.keys(editTour.ImageGallery).length>=10" multiple app-filereader/> 
+      </div>
+
+
+
+<!-- View Gallery Modal -->
+
+
+
+
+ 
+<!-- UPLOAD IMAGE -->
+
+
+</ul>
+
+</center>
+        </div>
+      </div>
+
+    </div>
+  
+</script>
+
+
+  <script type="text/ng-template" id="Fiesta.html"> 
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+       
+
+            
+
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-photo fa-2x" id = "consi"></i> </li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+       
+        <div class="form-group">
+
+
+
+         <div class="form-group">
+               &nbsp<label>Name</label>
+               <input class="form-control input-sm" placeholder="Enter name..." ng-model="fiesta.name">
+        </div>
+
+        <div class="form-group">
+               &nbsp<label>Location</label>
+               <input class="form-control input-sm" placeholder="Enter location..." ng-model="fiesta.location">
+        </div>
+         <div class="form-group">
+    
+
+         <input type="date" class="form-control input-sm" placeholder="Date of Event" ng-model="fiesta.date"> </li> 
+        
+           </div>
+
+         <div class="form-group">
+               &nbsp<label>Description</label>
+               <textarea class="form-control input-sm" placeholder="Enter description..." ng-model="fiesta.description">
+               </textarea>
+        </div>
+         <div class="form-group">
+            <form novalidate enctype="multipart/form-data">
+
+   
+<img ng-src="{{fiesta.coverImage[0]}}" width="250" height="150" ng-init="fiesta.coverImage[0] = coverImage[0]" /><br />
+
+<ul class = "list-inline">
+<br>
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input class = "file "type="file" ng-model="fiesta.coverImage" accept="image/*" multiple app-filereader/> 
+ </span>  <br><br>
+  <button ng-click="fiesta.coverImage[0] = def.image" ng-show="fiesta.coverImage[0]!=def.image" class = "file-input btn btn-sm btn-success">Set Default Image
+ </button>
+</li> 
+
+</ul>
+
+<br/>
+
+</form>
+        </div>
+
+<center>
+
+
+
+<br/>
+
+</form>
+
+
+  </li>
+    
+<br/>
+
+</form>
+
+</li>
+
+
+</ul>
+
+
+
+
+
+</center>
+        </div>
+
+
+
+      </div>
+
+
+
+
+      <div class="modal-footer" >
+      <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm" ng-click="saveFiesta()">Save</button>
+      </div>
+      </div>
+    </div>
+  
+</script>
+
+
+
+  <script type="text/ng-template" id="Churches.html"> 
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+       
+
+            
+
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-photo fa-2x" id = "consi"></i> </li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+       <form name="signForm">
+        <div class="form-group">
+
+
+
+         <div class="form-group">
+               &nbsp<label>Name</label>
+               <input class="form-control input-sm" placeholder="Church name..." ng-model="churches.name">
+        </div>
+
+        <div class="form-group">
+               &nbsp<label>Location</label>
+               <input class="form-control input-sm" placeholder="Enter location..." ng-model="churches.location">
+        </div>
+        
+
+         <div class="form-group">
+               &nbsp<label>Description</label>
+               <textarea class="form-control input-sm" placeholder="Enter description..." ng-model="churches.description">
+               </textarea>
+        </div>
+
+        
+       <div class="form-group">
+               <label>Url</label>
+      <input type="url" name="input" class="form-control input-sm" placeholder="Enter URL" ng-model="churches.url">
+               <div role="alert">
+
+    <span class="error" ng-show="signForm.input.$error.url">
+      Not valid url!</span>
+  </div>
+      </div>
+
+        <div class="form-group">
+            <form novalidate enctype="multipart/form-data">
+
+   
+<img ng-src="{{churches.coverImage[0]}}" width="250" height="150" ng-init="churches.coverImage[0] = coverImage[0]" /><br />
+
+<ul class = "list-inline">
+<br>
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input class = "file "type="file" ng-model="churches.coverImage" accept="image/*" multiple app-filereader/> 
+ </span>  <br><br>
+  <button ng-click="churches.coverImage[0] = def.image" ng-show="churches.coverImage[0]!=def.image" class = "file-input btn btn-sm btn-success">Set Default Image
+ </button>
+</li> 
+
+</ul>
+
+<br/>
+
+</form>
+        </div>
+      </div>
+
+<center>
+
+
+
+<br/>
+
+</form>
+
+
+  </li>
+    
+<br/>
+
+</form>
+
+</li>
+
+
+</ul>
+
+
+
+
+
+</center>
+        </div>
+ <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm" ng-disabled="signForm.input.$error.url" ng-click="saveChurches()">Save</button>
+      </div>
+      </div>
+
+
+      </div>
+
+
+
+
+
+</script>
+
+
+<script type="text/ng-template" id="Resorts.html"> 
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-photo fa-2x" id = "consi"></i> </li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+       <form name="signForm">
+        <div class="form-group">
+
+
+
+         <div class="form-group">
+               &nbsp<label>Name</label>
+               <input class="form-control input-sm" placeholder="Enter name..." ng-model="destination.name">
+        </div>
+
+        <div class="form-group">
+               &nbsp<label>Location</label>
+               <input class="form-control input-sm" placeholder="Enter location..." ng-model="destination.location">
+        </div>
+     
+
+         <div class="form-group">
+               &nbsp<label>Description</label>
+               <textarea class="form-control input-sm" placeholder="Enter description..." ng-model="destination.description">
+               </textarea>
+        </div>
+
+           <div class="form-group">
+               <label>Url</label>
+                <input type="url" name="input" class="form-control input-sm" placeholder="Enter URL" ng-model="destination.url">
+                   <div role="alert">
+
+                   <span class="error" ng-show="signForm.input.$error.url">
+                     Not valid url!</span>
+         </div>
+
+      
+<ul class = "list-inline">
+
+
+
+
+<!-- Cover IMAGE -->
+
+<li>
+<label>Cover Image</label>
+<form novalidate enctype="multipart/form-data">
+
+   
+<img ng-src="{{destination.coverImage[0]}}" width="250" height="150" ng-init="destination.coverImage[0] = coverImage[0]" /><br />
+
+<ul class = "list-inline">
+<br>
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input class = "file "type="file" ng-model="destination.coverImage" accept="image/*" multiple app-filereader/> 
+ </span>  <br><br>
+  <button ng-click="destination.coverImage = def.image" ng-show="destination.coverImage[0]!=def.image" class = "file-input btn btn-sm btn-success">Set Default Image
+ </button>
+</li> 
+
+
+</ul>
+
+<br/>
+
+</form>
+
+  </li>
+    
+<li>
+<label>Route/Map Image</label>
+<form novalidate enctype="multipart/form-data">
+
+   
+<img ng-src="{{destination.routeImage[0]}}" width="250" height="150" ng-init="destination.routeImage[0] = coverImage[1]" /><br />
+
+<ul class = "list-inline">
+<br>
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input class = "file "type="file" ng-model="destination.routeImage" accept="image/*" multiple app-filereader/> 
+ </span>  <br><br>
+ <button ng-click="destination.routeImage = def.image" ng-show="destination.routeImage[0]!=def.image" class = "file-input btn btn-sm btn-success">Set Default Image
+ </button>
+</li> 
+<!--
+ 
+-->
+</ul>
+
+<center>
+
+
+
+<br/>
+
+</form>
+
+
+  </li>
+    
+<br/>
+
+</form>
+
+</li>
+
+
+</ul>
+
+
+
+
+
+</center>
+        </div>
+
+</form>
+
+      </div>
+
+
+
+
+      <div class="modal-footer" >
+      <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm" ng-disabled="signForm.input.$error.url" ng-click="saveTouristDestination()">Save</button>
+      </div>
+      </div>
+    </div>
+  
+</script>
+
+
+
+
+
+  <script type="text/ng-template" id="Restaurant.html"> 
+
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+       
+
+            
+
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-photo fa-2x" id = "consi"></i> </li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+       <form name="signForm">
+        <div class="form-group">
+
+
+
+         <div class="form-group">
+               &nbsp<label>Name</label>
+               <input class="form-control input-sm" placeholder="Restaurant Name..." ng-model="restaurant.name">
+        </div>
+
+        <div class="form-group">
+               &nbsp<label>Location</label>
+               <input class="form-control input-sm" placeholder="Enter location..." ng-model="restaurant.location">
+        </div>
+        
+
+         <div class="form-group">
+               &nbsp<label>Description</label>
+               <textarea class="form-control input-sm" placeholder="Enter description..." ng-model="restaurant.description">
+               </textarea>
+        </div>
+
+         <div class="form-group">
+               <label>Url</label>
+                <input type="url" name="input" class="form-control input-sm" placeholder="Enter URL" ng-model="restaurant.url">
+                   <div role="alert">
+
+                   <span class="error" ng-show="signForm.input.$error.url">
+                     Not valid url!</span>
+         </div>
+         <br>
+
+        <div class="form-group">
+            <form novalidate enctype="multipart/form-data">
+
+   
+<img ng-src="{{restaurant.coverImage[0]}}" width="250" height="150" ng-init="restaurant.coverImage[0] = coverImage[0]" /><br />
+
+<ul class = "list-inline">
+<br>
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input class = "file "type="file" ng-model="restaurant.coverImage" accept="image/*" multiple app-filereader/> 
+ </span>  <br><br>
+  <button ng-click="restaurant.coverImage[0] = def.image" ng-show="restaurant.coverImage[0]!=def.image" class = "file-input btn btn-sm btn-success">Set Default Image
+ </button>
+</li> 
+
+</ul>
+
+<br/>
+
+</form>
+        </div>
+
+<center>
+
+
+
+<br/>
+
+</form>
+
+
+  </li>
+    
+<br/>
+
+</form>
+
+</li>
+
+
+</ul>
+
+
+
+
+
+</center>
+        </div>
+ <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm" ng-disabled="signForm.input.$error.url" ng-click="saveRestaurant()">Save</button>
+      </div>
+      </div>
+
+</form>
+      </div>
+
+
+
+</script>
+
+
+
+
+
+
+<!-- CONTENT -->
+<tabset>
+
+   
+    <tab  heading="Fiesta" active="tab.active" disable="tab.disabled">
+               <div class="row"  ng-controller="TourismCtrl">
+                    <div class="col-lg-12">
+                    <br>
+                        <div class="table-responsive animated fadeIn" >
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                      <th>Name</th>
+                                      <th>Barangay</th>
+                                      <th>Date of Events</th>
+                
+                                      <th>Action</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr  dir-paginate="fiesta in fiestaList | itemsPerPage: 10" pagination-id="fiestaPagination1" repeat-loading>
+                                        <td>{{fiesta.Name}}</td>
+                    
+                                        <td>{{fiesta.Location}}</td>
+                                        <td>{{fiesta.Date}}</td>
+
+
+                                       <td>
+                                        <a href="#" ng-click="editFiesta(fiesta)"> Edit </a>  /
+                                         <a href = "#" ng-click="deleteFiesta(fiesta)"> Delete </a> 
+                                        </td>
+
+                                    </tr>
+
+                                  
+                                </tbody>
+                            </table>
+
+                                  <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="fiestaPagination1" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+                        </div>
+
+                    <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="newFiesta()" id ="addbutts">
+                     New
+                    </button>
+              
+                    </div>
+
+                        </div>
+ 
+</tab>
+  <tab heading="Churches">
+      <div class="row"  ng-controller="TourismCtrl">
+                    <div class="col-lg-12">
+                    <br>
+                        <div class="table-responsive animated fadeIn" >
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                      <th>Name</th>
+                                      <th>Location</th>
+                                      <th>Url</th>
+                                      <th>Action</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr  dir-paginate="churchesList in churchesList | itemsPerPage: 10" pagination-id="churchesPagination1" repeat-loading>
+                                        <td>{{churchesList.Name}}</td>
+                    
+                                        <td>{{churchesList.Location}}</td>
+                                        <td>{{churchesList.Url}}</td>
+
+
+                                       <td>
+                                        <a href="#" ng-click="editChurches(churchesList)"> Edit </a>  /
+                                         <a href = "#" ng-click="deleteChurches(churchesList)"> Delete </a> 
+                                        </td>
+
+                                    </tr>
+
+                                  
+                                </tbody>
+                            </table>
+
+                                  <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="churchesPagination1" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+                        </div>
+
+                    <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="newChurches()" id ="addbutts">
+                     New
+                    </button>
+              
+                    </div>
+
+                        </div>
+  </tab>
+
+
+    <tab heading="Resorts">
+      <div class="row"  ng-controller="TourismCtrl">
+                    <div class="col-lg-12">
+                    <br>
+                        <div class="table-responsive animated fadeIn" >
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                      <th>Name</th>
+                                      <th>Location</th>
+                                      <th>Url</th>
+                                      <th>Action</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr  dir-paginate="destination in touristDestinationList | itemsPerPage: 10" pagination-id="destinationPagination1" repeat-loading>
+                                        <td>{{destination.Name}}</td>
+                    
+                                        <td>{{destination.Location}}</td>
+                                        <td>{{destination.Url}}</td>
+
+
+                                       <td>
+                                        <a href="#" ng-click="editDestination(destination)"> Edit </a>  /
+                                         <a href = "#" ng-click="deleteDestination(destination.$id)"> Delete </a> 
+                                        </td>
+
+                                    </tr>
+
+                                  
+                                </tbody>
+                            </table>
+
+                                  <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="destinationPagination1" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+                        </div>
+
+                    <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="resortsModal()" id ="addbutts">
+                     New
+                    </button>
+              
+                    </div>
+
+                        </div>
+  </tab>
+
+
+     <tab heading="Restaurant">
+      <div class="row"  ng-controller="TourismCtrl">
+                    <div class="col-lg-12">
+                    <br>
+                        <div class="table-responsive animated fadeIn" >
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                      <th>Name</th>
+                                      <th>Location</th>
+                                      <th>Url</th>
+                                      <th>Action</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr  dir-paginate="restaurantList in restaurantList | itemsPerPage: 10" pagination-id="destinationPagination1" repeat-loading>
+                                        <td>{{restaurantList.Name}}</td>
+                    
+                                        <td>{{restaurantList.Location}}</td>
+                                        <td>{{restaurantList.Url}}</td>
+
+
+                                       <td>
+                                        <a href="#" ng-click="editRestaurant(restaurantList)"> Edit </a>  /
+                                         <a href = "#" ng-click="deleteRestaurant(restaurantList.$id)"> Delete </a> 
+                                        </td>
+
+                                    </tr>
+
+                                  
+                                </tbody>
+                            </table>
+
+                                  <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="destinationPagination1" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+                        </div>
+
+                    <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="newRestaurant()" id ="addbutts">
+                     New
+                    </button>
+              
+                    </div>
+
+                        </div>
+  </tab>
+
+</tabset>
+
+
+
+          
+                   <br><br><br><br><br><br><br><br><br>
+
+
+
+
+
+<!-- CONTENT -->
+
+
+            
+                   <br><br><br>
+
+                
+
+        <!-- /#page-wrapper -->
+
+<script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+<script src="dropzone.js"></script>
+   
+  
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+
+</body>
+
+</html>
+
+

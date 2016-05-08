@@ -1,0 +1,141 @@
+
+ <!-- Modal Hotline -->
+
+<script type="text/ng-template" id="HotlineModal.html">
+
+
+      <div class="modal-header">
+
+
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-phone-square fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Hotline</h4> </li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+       
+        <div class="form-group">
+            
+            <div class="form-group">
+               <label>Department</label>
+               <input class="form-control input-sm" maxlength="50" placeholder="Enter name" ng-model="directoryInfo.Name">
+           </div>
+
+           <div class="form-group">
+               <label>Hotline No.</label>
+    
+          <input class="form-control input-sm" maxlength="15" placeholder="Enter hotlline" ng-model="directoryInfo.ContactNo" phone-input>
+           </div>
+
+        </div>
+
+      </div>
+
+
+
+
+      <div class="modal-footer" >
+      <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm" ng-click="saveDirectoryInfo()">Save</button>
+      </div>
+      </div>
+
+
+</script>
+
+
+<!-- Modal Hotline -->
+
+
+
+
+
+
+<!-- CONTENT -->
+
+
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <h1 class="page-header animated bounceInRight">
+
+                          <small><i class="fa fa-fw fa-phone-square fa-2x" id = "conhead"> </i></small>  Update Hotline
+                        </h1>
+                        <ol class="breadcrumb animated bounceInRight" >
+                            <li class="active">
+                                Lets you edit the hotline section.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+
+
+
+
+               <div class="row" >
+                     <div class="col-lg-12">
+                    <br>
+                 
+
+
+                     <div class="table-responsive animated fadeIn" >
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                       <th>Department</th>
+                                        <th>Hotline</th> 
+                                        <th>Date Added</th> 
+         
+                                        <th>Action</th>
+
+                                </thead>
+                                <tbody>
+
+                                    <tr ng-repeat="directory in directory" repeat-loading>
+                                    
+                                        <td>{{directory.Name}}</td>
+
+
+                                        <td>{{directory.ContactNo}}</td>
+
+                                        <td>{{directory.DateAdded}}</td>   
+                          
+                                        <td>
+                                        <a href="#" ng-click="openEditHotlineModal(directory)">Edit </a> / 
+                                        <a href  = "#" ng-click="deleteHotline(directory.$id)" >Delete </a>     
+
+                                        </td>
+
+
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                              
+                        </div>    
+
+                        <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="newHotline()">New</button>
+                    </div>
+
+            </div>
+            
+<br><br><br>
+        
+
+
+
+   

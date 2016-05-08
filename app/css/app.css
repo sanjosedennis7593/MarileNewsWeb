@@ -1,0 +1,334 @@
+/* ----------Index ------------*/
+
+
+#user
+{
+
+padding-top: 20px;
+
+
+}
+
+
+#pass
+{
+
+
+}
+
+.name
+{
+	padding-top: 7px;
+width: 30px;
+height: 30px;
+
+}
+
+.logs
+{
+padding-top: 12%;
+
+
+}
+
+
+
+.icon-bar
+
+{
+
+height: 40px;
+
+}
+
+
+.panel
+{
+height: 220px;
+width:350px;
+
+
+
+}
+
+#golin{
+	font-weight: bold;
+
+
+	font-size: 16px;
+ color:#DEC71B;
+font-weight:bold;
+
+}
+
+
+.tab-bar
+{
+   
+    background-size:18px 18px;
+    background-repeat: no-repeat;
+
+}
+
+.small
+{
+
+	height: 40px;
+}
+
+
+
+#need{
+
+color:#EDE247;
+
+}
+/* ----------Index ------------*/
+
+
+/* ----------login ------------*/
+
+
+
+
+
+
+
+#labelone{
+
+font-size: 14px;
+font-weight: bold;
+}
+
+
+
+#labeltwo{
+font-size: 14px;
+font-weight: bold;
+	
+}
+
+
+.off canvas 
+{
+
+height: 100%;
+
+}
+
+.welc{
+	padding-top: 10px;
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+
+}
+
+#navis{
+
+width:70%;
+height: 630px;
+}
+
+#nice{
+padding-top: 22%;
+
+}
+
+#navisi {
+padding-top: 30%;
+width: 70px;
+background-color: black;
+
+
+}
+
+
+
+#labelone{
+
+	padding-right: 80%;
+}
+
+#labeltwo{
+
+	padding-right: 80%;
+}
+
+.medium-12 col{
+
+	
+}
+
+
+.athens{
+background-color: black;
+}
+
+.athons{
+background-color: black;
+}
+
+.logo{
+margin-left: 5px;
+	width: 30px;
+	height: 30px;
+
+}
+
+
+
+#marq
+{
+
+font-size: 14px;
+ color:#DEC71B;
+font-weight:bold;
+padding-left: 30px;
+
+}
+
+.mark
+{
+
+background-color: black;
+height: 40px;
+
+}
+
+/* ----------dropdown------------*/
+#tirso{
+background-color:  #1C2B4A;
+ color:#eee;
+font-weight: bold;
+height: 43px;
+}
+
+#tirso:hover{
+	color: white;
+}
+
+/* ----------dropdown------------*/
+.homie{
+font-size: 40px;
+height: 100%;
+
+}
+
+.homers{
+font-size: 9px;
+color:black;
+
+}
+
+.homie:hover{border-right:2px solid white;}
+
+
+.wholes{
+
+	background-color: #DEC71B;
+
+}
+
+/* ----------login ------------*/
+
+
+
+/* ----------Content ------------*/
+
+.content{
+
+border: 1px solid black;
+padding-top: 100px;
+padding: 2px;
+
+}
+
+/* ----------Content ------------*/
+
+
+
+#nabis{
+position: absolute;
+width: 170px;
+
+background-color: #1C2B4A;
+}
+
+/* ----------header both log and adminlog ------------*/
+#topb{
+	background-color: #17233B;
+	height: 40px;
+}
+
+/* ----------header color log in------------*/
+#marko{
+
+font-size: 17px;
+ color:#DEC71B;
+font-weight:bold;
+
+
+padding-top: 8px;
+}
+
+
+/* ----------new ------------*/
+
+
+
+
+#iconic{
+
+
+
+}
+
+.chat-box-left{
+  background-color:#22A7F0;
+  color:white;
+}
+
+.chat-box-right{
+	background-color:#E4F1FE;
+
+}
+.chat-box-new{
+	overflow: scroll;
+}
+#chatBox{
+	overflow : auto;
+}
+
+.report-details{
+	padding-top: 12px;
+	white-space: normal;
+}
+.print-container{
+	height: 1654px;
+	
+}
+.print-container{
+	white-space: normal;
+	width:700px;
+}
+.r-description{
+	white-space: normal;
+	width:450px;
+
+}
+.print-report{
+	padding:12px;
+	width:1042px;
+	height:auto;
+	
+}
+
+.print-footer{
+		padding:12px;
+		position:relative;
+		bottom:-350px;
+}
+
+
+

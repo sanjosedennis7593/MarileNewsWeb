@@ -1,0 +1,278 @@
+
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+
+                    <div class="col-lg-12">
+
+                        <h1 class="page-header animated bounceInRight">
+
+                          <small><i class="fa fa-fw fa-comments fa-2x" id = "conhead"> </i></small> Interactive Chat
+                        </h1>
+                        <ol class="breadcrumb animated bounceInRight" >
+                            <li class="active">
+                                 Lets you chat with mobile users.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+
+
+ <!-- Modal CHat -->
+ <script type="text/ng-template" id="ChatBox.html">   
+
+    <div class="modal-content">
+
+
+   
+
+
+       
+         <div class="form-group-sm">
+
+      
+           
+  <div class="col-lg-12">
+                <div class="chat-box-div">
+                    <div class="chat-box-head">
+
+                    <ul class  = "list-inline">   
+
+                     <li> <i class="fa fa-fw fa-comment-o fa-1x" id ="cons" >  </i></li>
+                     <li>   Conversation Panel</li>
+                          </ul>
+                    </div>
+
+
+                    <div class="panel-body chat-box-main" scroll-glue>
+
+
+
+                        <div class="chat-box" id="chat-box" ng-repeat="chatMessage in chatConversation" repeat-loading>
+                          <div class="chat-box-left" ng-if="currentPIOAccount==chatMessage.Sender">
+                           {{chatMessage.Message}}
+                           <br><b>{{chatMessage.Sender}}</b>
+                           </div>
+                           <div class="chat-box-right" ng-if="currentPIOAccount!=chatMessage.Sender">
+                            {{chatMessage.Message}}
+                             <br><b>{{chatMessage.Sender}}</b>
+                           </div>
+                        </div>
+                         <hr class="hr-clas" />
+                        <br> 
+                       
+                       
+
+
+
+                    </div>
+
+
+<div class="chat-box-footer">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter Message..." ng-model="chat.message">
+                            <span class="input-group-btn">
+                                <button class="btn btn-warning btn-sm" type="button" ng-click="replyMessage()">SEND</button>
+                            </span>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+     
+    </div>
+  </div>
+
+
+</script>
+ <!-- Modal CHat -->
+
+
+
+
+<!-- CONTENT ---->
+
+<tabset>
+
+   <tab  heading="Messages" active="tab.active" disable="tab.disabled">
+<div class="row" ng-controller="ChatCtrl">
+<div class="col-lg-12"> 
+   
+                <div class="chat-box-new-div">
+                    <div class="chat-box-new-head">
+                 
+                     <center>
+
+     <div id = "logtitle">
+   <img  img src = "images/user42.png">&nbsp
+   <span style="vertical-align:middle" id = "chatxt">Message Box</span>
+</div>  
+          
+
+</center>
+                       
+
+                    </div>
+        
+<!--
+                            <div class="btn-group pull-right">
+                      
+                                     <a  class="dropdown-toggle" data-toggle="dropdown" id = "admin" >
+
+                   <i class="fa fa-cog" id = "tors" ></i></a>
+
+
+
+                                    <span class="sr-only">Toggle Dropdown</span>
+                            
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#"><span class="fa fa-map-marker"></span>&nbsp;Invisible</a></li>
+                                    <li><a href="#"><span class="fa fa-comments-o"></span>&nbsp;Online</a></li>
+                                    <li><a href="#"><span class="fa fa-lock"></span>&nbsp;Busy</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><span class="fa fa-circle-o-notch"></span>&nbsp;Logout</a></li>
+                                </ul>
+                            </div>
+
+-->
+
+
+
+                    
+                 <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                       <th><center>Username</center></th>
+                                        <th><center>Message</center></th>
+                                
+                                    </tr>
+                                        
+                                       
+                                </thead>
+                                <tbody>
+
+                                       <tr  dir-paginate="message in chatRef | orderBy:'-MessageTime.ServerTime' | itemsPerPage: 5" pagination-id="chatPagination" repeat-loading>
+                                        <td><center>{{message.Sender.Sender}}</center></td>
+                                         <td ng-repeat="msg in message.Conversation" ng-show="$last">
+                                           <b>{{msg.Sender}}</b> : {{msg.Message}}<br>
+                                            <a href="#" ng-click="chatMessage(message)"> View Full Conversation</a>
+                                           
+                                        </td>
+                                        <td> <center> <a href="#" ng-click="deleteConversation(message)"> Delete Conversation</a> </center></td>
+                                    </tr>
+                                 
+                                </tbody>
+                            </table>    <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                            
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="chatPagination" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+
+                </div>
+
+
+</div>
+</div>
+</tab>
+<tab heading="Registered User">
+    <br>
+ <div class="table-responsive animated fadeIn" ng-controller="ChatCtrl">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                       <th><center>Username</center></th>
+                                        <th><center>Name</center></th>
+                                         <th><center>Status</center></th>
+                                       <th><center>Date Registered</center></th>
+                                        <th><center>Action</center></th>
+                                    </tr>
+                                        
+                                       
+                                </thead>
+                                <tbody>
+
+                                       <tr  dir-paginate="user in userRef | itemsPerPage: 5 | orderBy:'-DateRegistered'" pagination-id="userPagination" repeat-loading>
+                                        <td><center>{{user.Username}}</center></td>
+                    
+                                        <td><center>{{user.Lastname}}, {{user.Firstname}} {{user.Initial}}</center></td>
+                                         <td><center>{{user.Status}}</center></td>
+                                        <td><center>{{user.DateRegistered}}</center></td>
+                                       <td><center>
+                                        <a href="#" ng-click="disableAccount(user)" ng-show="user.Status=='Active'"> Disable Account </center></a> 
+                                        <center>
+                                         <a href="#" ng-click="enableAccount(user)" ng-show="user.Status=='Inactive'"> Enable Account </center></a>
+                                        </td> 
+
+                                    </tr>
+                                 
+                                </tbody>
+                            </table>
+                    <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                            
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="userPagination" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+                
+                        </div>
+</tab>
+</tabset>  
+
+        
+
+
+
+
+<!-- CONTENT ---->
+                   <br>
+
+
+
+                  <!-- Footer ---->      
+
+                        <div class="panel panel-default animated fadeIn" id ="dork">
+
+
+                            <div class="panel-body">
+                               
+                                
+                            
+                        <center>
+                      <h4 id= "foot1"> MarileNews </h4>
+                          <h4 id= "foot2">  © 2015 || All Rights Reserved</h4>
+
+                        </center>
+
+               
+ 
+
+                        </div>
+          
+
+<!-- Content -->
+
+
+
+

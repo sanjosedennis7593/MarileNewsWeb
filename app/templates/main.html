@@ -1,0 +1,159 @@
+
+   <div id="wrapper" >
+
+         <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id = "wholehead">
+
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+
+
+            <div class="navbar-header">
+
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+             
+                <div class="left tab-bar-section">
+
+              <div id="navcontainer">
+
+
+<ul id="lista">
+
+<img src = "images/logo2.png" id ="pic">
+
+<li><a href="#" id ="mars">MarileNews</a></li>
+
+
+
+</ul>
+
+
+</div>
+
+                </div>
+
+
+
+            </div>
+
+            <!-- Top Menu Items -->
+           
+            <ul class="nav navbar-right top-nav">
+
+                <li class="dropdown">
+                <li class="dropdown"  id="usher">
+
+
+                    <a  class="dropdown-toggle" data-toggle="dropdown" id = "admin" ><i class="fa fa-user" id = "torsu" ></i>
+
+                    &nbsp{{currentActiveAccountEmail}}&nbsp<b class="caret"></b></a>
+                    <ul class="dropdown-menu"> 
+                        <li>
+                            <a href="#" ui-sref=".settings" ng-click="showSettings()"><i class="fa fa-fw fa-cog"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a ui-sref="login" ng-click="clearData()"><i class="fa fa-fw fa-power-off"></i> Logout</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+
+   <div id = "nav" >
+
+            
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+                <ul class="nav navbar-nav side-nav" id ="wholenav">
+
+
+                    <li>
+                         <a ui-sref=".home" ng-click="showHome()" href="#" id="tex"> <i class="fa fa-fw fa-home active" id ="cons"></i>&nbsp;Home</a>
+                    </li>
+                    <li>
+                          <a ui-sref=".post" href="#" ng-click="showPost()" id="tex"><i class="fa fa-fw fa-pencil" id ="cons"></i>&nbsp;Post</a>
+                    </li>
+                    <li>
+                        <a ui-sref=".update" ng-click="showUpdate()" href="#" id="tex"><i class="fa fa-fw fa-refresh" id ="cons"></i>&nbsp;Update news</a>
+                    </li>
+                     <li>
+                        <a ui-sref=".archivenews" ng-click="showArchive()" href="#" id="tex"><i class="fa fa-fw fa-archive" id ="cons"></i>&nbsp;News Archive</a>
+                    </li>
+                     <li>
+                       <a ui-sref=".mobilecontent" ng-click="showMobileContent()" href="#" id="tex" ng-hide="currentAccountStatus!='SuperAdmin' && currentAccountStatus!='Admin'"><i class="fa fa-fw fa-tablet" id ="cons"></i>&nbsp;Mobile Content</a>
+                    </li>
+
+
+
+                    <li>
+                        <a ui-sref=".traffic" ng-click="showTraffic()" href="#" id="tex"><i class="fa fa-fw fa-bus" id ="cons"></i>&nbsp;Traffic Update</a>
+                    </li>
+
+
+                    <li>
+                        <a ui-sref=".chat" ng-click="showInteractiveChat()" href="#" id = "tex"><i class="fa fa-fw  fa-comments " id ="cons"></i>&nbsp;Interactive Chat</a>
+                    </li>
+
+
+                    <li>
+                        <a ui-sref=".flood" ng-click="showFloodUpdate()" href="#" id = "tex"><i class="fa fa-fw fa-tint " id ="cons"></i>&nbsp;Flood Update</a>
+                    </li>
+
+                      <li>
+                        <a ui-sref=".incident" ng-click="showIncidentReport()" href="#" id = "tex"><i class="fa fa-fw fa-exclamation-triangle " id ="cons"></i>&nbsp;Incident Report</a>
+                    </li>
+
+
+                   
+
+                    <li>
+                        <a ui-sref=".jobs" ng-click="showJobs()" href="#" id = "tex"><i class="fa fa-fw fa-user-md " id ="cons"></i>&nbsp;Jobs</a>
+                    </li>
+
+
+                    <li>
+                        <a ui-sref=".events" ng-click="showEvents()" href="#" id = "tex"><i class="fa fa-fw fa-calendar " id ="cons"></i>&nbsp;Events</a>
+                    </li>
+
+
+                    <li>
+                        <a ui-sref=".events" ng-click="showPrograms()" href="#" id = "tex"><i class="fa fa-fw fa-calendar " id ="cons"></i>&nbsp;Programs</a>
+                    </li>
+
+
+                     <li>
+                        <a ui-sref=".feedback" href="#" ng-click="showFeedback()" id = "tex"><i class="fa fa-fw fa-comment" id ="cons"></i>&nbsp;Feedback</a>
+                    </li>
+
+
+                    <li>
+                        <a ui-sref=".accounts" ng-click="showAccount()" id = "tex" ng-hide="currentAccountStatus!='SuperAdmin' && currentAccountStatus!='Admin'"><i class="fa fa-fw  fa-users " id ="cons" ></i>&nbsp;Accounts</a>
+                    </li>
+
+
+
+
+            </div>
+    </div>
+
+
+
+
+ </nav>
+
+ <div id="main">
+
+
+      <div ui-view>
+
+      </div>          
+
+  </div>

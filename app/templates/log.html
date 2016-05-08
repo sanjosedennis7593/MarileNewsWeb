@@ -1,0 +1,187 @@
+<style>
+body{background:#294072; font-family: 'Source Sans Pro', sans-serif}
+</style>
+
+
+
+<div  >
+        <!-- topnav ---->
+
+
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id = "holhead">
+
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+<center>
+
+     <div id = "logtitle">
+   <img  img src = "images/logo2.png"style="width:30px;height:30px">&nbsp
+   <span style="vertical-align:middle" id = "marso">MarileNews</span>
+</div>  
+          
+
+</center>
+
+</nav>
+
+<!-- topnav ---->
+
+
+   
+
+
+<!-- Content ---->
+
+
+
+ <div class="container animated fadeIn" >    
+
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-info" id = "contain" >
+
+
+                    <div class="panel-heading" id = "panhead">
+
+                      <center>
+                          <div class="panel-title" id="adm">Login Account</div>
+                      </center>    
+    
+                    </div> 
+
+
+                    <div style="padding-top:30px" class="panel-body" id = "padbody">
+
+                        <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                            
+                        <form class="form-signin" role="form" name="signForm" ng-controller="LoginCtrl">
+                                    
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-user fa-1x use"></i></span>
+                                        <input id="login-username" type="text" ng-model="account.email" class="form-control" name="email" value="" placeholder="Enter Email Address">                                        
+                            </div>
+                                
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <span class="input-group-addon"><i class="fa fa-lock fa-1x lok"></i></span>
+                                        <input id="login-password" type="password" ng-model="account.pass" class="form-control" name="password" placeholder="Enter password">
+                            </div>
+                                    
+
+               
+
+                                <div style="margin-top:10px" class="form-group" id ="logbut">
+                                    <!-- Button -->
+
+                                    <div class="col-sm-12 controls">
+
+                                    <center> 
+                                       
+                                      <a id="btn-login" ng-click="loginAccount($event)" class="btn btn-primary loger">Login</a>
+
+                                    </center> 
+                                      
+
+                                    </div>
+                                </div>
+
+
+                           </form>  
+                   
+                                <div class="form-group">
+                                    <div class="col-md-12 control">
+                                    <center>  
+                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" id = "forpass">
+                                            Forgot Password?  &nbsp
+                                        <a data-toggle="modal" data-target="#myModal">
+                                            Click Here to reset it
+                                        </a>
+                                        </div>
+                                        </center>  
+                                        </div>
+                                    </div>
+                                </div>    
+                          
+                        </div>                     
+                    </div>  
+        </div>
+
+
+
+
+
+
+
+  
+
+
+
+<!-- Content ---->
+
+
+
+
+<!-- Modal -->
+<div class="modal fade bs-example-modal-sm " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-controller="LoginCtrl">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            
+
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-undo fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel">Reset Password</h4></li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+       
+        
+            
+            <div class="form-group">
+            
+            <div class="form-group">
+               <label>Email</label>
+               <input class="form-control input-sm" placeholder="Enter Email" ng-model="account.email">
+           </div>
+
+     
+
+
+        </div>
+
+
+
+      
+
+
+      </div>
+
+
+
+
+      <div class="modal-footer">
+
+        <center>
+        <button type="button" class="btn btn-primary btn-sm" ng-click="resetPassword(account.email)">Reset</button>
+        </center>
+        
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  </div>

@@ -1,0 +1,122 @@
+
+
+        <div id="page-wrapper" ng-controller="PostCtrl">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+
+
+                    <div class="col-lg-12">
+
+                        <h1 class="page-header animated bounceInRight">
+                          <small><i class="fa fa-fw fa-pencil fa-2x" id = "conhead"> </i></small>  Post
+                        </h1>
+                        <ol class="breadcrumb animated bounceInRight" >
+                            <li class="active">
+                                Lets you post information to Marilenews mobile App.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+             
+
+                <div class="row"> 
+
+<div class="col-lg-12 animated fadeInUp">
+
+<form class="form-signin" role="form" name="signForm" ng-controller="PostCtrl">
+    
+    <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+
+      <div class="form-group">
+               <label>Title:</label>
+               <input class="form-control input-sm" maxlength="140" placeholder="Enter title" ng-model="news.title">
+      </div>
+
+    
+    
+      <div class="uneditable-input">
+      <ul class = "list-inline" id = "listo">
+
+      <li>        <textarea class="form-control" rows="11" id = "txtarea"   style="resize:none;" ng-model="news.desc" placeholder="Description"></textarea> </li>
+    
+          
+
+<!-- UPLOAD IMAGE -->
+<li>
+<form novalidate>
+
+   <center>
+<img ng-src="{{dummy.images[0]}}" width="235" height="150" ng-init="dummy.images[0] = def.image" /><br />
+
+<ul class = "list-inline">
+
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input type="file" ng-model="dummy.images" accept="image/*" resize-max-height="300" resize-max-width="300" resize-quality="0.7" resize-type="image/jpg" multiple app-filereader/> 
+ </span>  
+</li> 
+
+ <li> 
+ <button ng-click="dummy.images[0] = def.image" class = "file-input btn btn-sm btn-success">Set Default Image
+ </button>
+ </li> 
+
+</ul>
+
+<br/>
+</center>
+</form>
+</li>
+
+
+
+ 
+<!-- UPLOAD IMAGE -->
+
+
+ </div>
+
+
+ <br>
+
+<button type="button" class="btn btn-sm btn-danger pull-right" ng-disabled="signForm.input.$error.url" ng-click="postNews(dummy.images[0])">Post
+
+</button>
+
+
+</form>
+
+</div>
+
+
+<br><br>
+
+
+  </div>
+
+</div>
+
+
+    <div class="panel panel-default animated fadeIn" id ="dork">
+
+
+                            <div class="panel-body">
+                               
+                                
+                            
+                        <center>
+                       
+                           <h4 id= "foot1"> MarileNews </h4>
+                          <h4 id= "foot2">  © 2015 || All Rights Reserved</h4>
+
+                        </center>
+
+     
+
+                        </div>
+         
+                    </div>
+
+ </div>

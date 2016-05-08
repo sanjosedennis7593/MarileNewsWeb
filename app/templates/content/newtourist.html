@@ -1,0 +1,144 @@
+
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-photo fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Upload Image</h4> </li>
+ 
+</ul>
+  
+
+       
+        <div class="form-group">
+
+
+
+         <div class="form-group">
+               &nbsp<label>Name</label>
+               <input class="form-control input-sm" placeholder="Enter name. ..">
+        </div>
+
+        <div class="form-group">
+               &nbsp<label>Location</label>
+               <input class="form-control input-sm" placeholder="Enter location. ..">
+        </div>
+
+         <div class="form-group">
+               &nbsp<label>Description</label>
+               <input class="form-control input-sm" placeholder="Enter description. ..">
+        </div>
+
+<center>
+
+
+
+<ul class = "list-inline">
+
+
+<!-- Cover IMAGE -->
+
+<li>
+<label>Cover Image</label>
+<form novalidate enctype="multipart/form-data">
+
+   
+<img ng-src="{{coverImage[0]}}" width="250" height="150" ng-init="coverImage = def.image" /><br />
+
+<ul class = "list-inline">
+<br>
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input class = "file "type="file" ng-model="coverImage" accept="image/*" multiple app-filereader/> 
+ </span>  
+</li> 
+<!--
+ <li> 
+
+ <button ng-click="coverImage[0] = def.image" ng-show="coverImage!=def.image" class = "file-input btn btn-sm btn-success">Set Default Image
+ </button>
+
+ </li> 
+ -->
+</ul>
+
+<br/>
+
+</form>
+
+
+  </li>
+    
+
+<!-- Cover IMAGE -->
+
+
+
+
+<!-- Route/Map  IMAGE -->
+<li>
+<label>Route/Map Image</label>
+<form novalidate enctype="multipart/form-data">
+
+   
+<img ng-src="{{routeImage[0]}}" width="250" height="150" ng-init="routeImage[0] = def.image" /><br />
+
+<ul class = "list-inline">
+<br>
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input class = "file "type="file" ng-model="routeImage" accept="image/*" multiple app-filereader/> 
+ </span>  
+</li> 
+<!--
+ <li> 
+
+ <button ng-click="routeImage[0] = def.image" ng-show="routeImage!=def.image" class = "file-input btn btn-sm btn-success">Set Default Image
+ </button>
+ 
+ </li> 
+-->
+</ul>
+
+<br/>
+
+</form>
+
+</li>
+
+
+
+ 
+<!-- UPLOAD IMAGE -->
+
+
+</ul>
+
+</center>
+
+
+ <form novalidate enctype="multipart/form-data">
+
+   
+
+<ul class = "list-inline">
+<br>
+ <li>  
+<span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input class = "file "type="file" ng-model="gallery" accept="image/*" multiple app-filereader/> 
+ </span>  
+</li> 
+<!--
+<div class="gallery">
+<h3>Gallery</h3>
+<img ng-repeat="gallery in gallery" ng-src="{{gallery}}" width="150" height="75" />
+</div>
+
+
+ -->
+</ul>
+
+<br/>
+
+</form>
+
+
+
+        </div>
+

@@ -1,0 +1,270 @@
+
+
+
+<!-- Modal Edit Tourism -->
+
+<script type="text/ng-template" id="TouristAttractionModal.html">
+
+
+      <div class="modal-header">
+
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+            
+
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-undo fa-3x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Edit Tourism</h4> </li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+       <div class="form-group">
+             <form novalidate>
+    Pick an image-file: <input type="file" ng-model="dummy.images" accept="image/*" multiple app-filereader/><br/>
+    <img ng-src="{{dummy.images[0]}}" width="75" height="75" ng-init="dummy.images[0] = defaultImage " /><br />
+    <button ng-click="dummy.images[0] = defaultImage">Set Default Image</button><br/>
+</form>
+       </div>
+        <div class="form-group">
+            
+            <div class="form-group">
+               <label>Name</label>
+               <input class="form-control input-sm" placeholder="Enter name" ng-model="tour.Name">
+           </div>
+
+           <div class="form-group">
+               <label>Location</label>
+               <input class="form-control input-sm" placeholder="Enter location" ng-model="tour.Location">
+           </div>
+
+           <div class="form-group">
+               <label>Description</label>
+               <textarea class="form-control input-sm" placeholder="Enter description" ng-model="tour.Description">
+               </textarea>
+           </div>
+
+       
+        </div>
+      </div>
+
+
+      <div class="modal-footer" >
+      <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm" ng-click="saveInfo()">Save</button>
+      </div>
+      </div>
+
+
+</script>
+<!-- Modal Edit Tourism -->
+
+
+
+
+
+
+<!-- CONTENT -->
+
+
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <h1 class="page-header animated bounceInRight">
+
+                          <small><i class="fa fa-fw fa-plane fa-2x" id = "conhead"> </i></small>  Account List
+                        </h1>
+                        <ol class="breadcrumb animated bounceInRight" >
+                         <li class="active ">
+                                 Lets you view the list of accounts.
+                            </li>
+
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+
+<!-- *********************************************************************************** -->
+<tabset>
+     <tab  heading="Active" active="tab.active" disable="tab.disabled">
+       <div class="row" >
+                     <div class="col-lg-12">
+                    <br>
+                 
+
+
+                     <div class="table-responsive animated fadeIn" >
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                       <th><center>Email</center></th>
+
+                                        <th><center>Status</center></th>
+                                       <th><center>Date Registered</center></th>
+                                       <th><center>Set as</center></th>
+                                        <th><center>Action</center></th>
+                              
+                                        
+                                       
+                                </thead>
+                                <tbody>
+
+                                    <tr dir-paginate="account in accList | orderBy:'-DateRegistered' | itemsPerPage: 10 " pagination-id="newsPagination" repeat-loading ng-hide="account.Email==currentEmail || account.Type=='SuperAdmin'">
+                                        <td><center>{{account.Email}}</center></td>
+                                        <td><center>{{account.Status}}</center></td>
+                                        <td><center>{{account.DateRegistered}}</center></td>
+                                         <td><center><a href  = "#" ng-show="account.Type=='Staff'" ng-click="setAsAdmin(account)" >Admin</a> 
+                                         <a href="#" ng-show="account.Type=='Admin'" ng-click="setAsStaff(account)">Staff</a></center></td>
+                                        <td><center>
+                                        <a href  = "#" ng-click="showInfo(account)">View</a>/
+                                        <a href  = "#" ng-show="account.Status=='Active'" ng-click="inactiveAccount(account)">Deactivate</a> 
+                                         <a href  = "#" ng-show="account.Status=='Inactive'" ng-click="activateAccount(account)">Activate</a>   
+                                        </center>
+                                        </td>
+
+
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                    <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                            
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="newsPagination" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+                
+                        </div>
+                        
+                    </div>
+            </div>
+    </tab>
+
+     <tab heading="Inactive">
+             <div class="row" >
+                     <div class="col-lg-12">
+                    <br>
+                 
+
+
+                     <div class="table-responsive animated fadeIn" >
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                       <th><center>Email</center></th>
+
+                                        <th><center>Status</center></th>
+                                       <th><center>Date Registered</center></th>
+
+                                        <th><center>Action</center></th>
+                              
+                                        
+                                       
+                                </thead>
+                                <tbody>
+
+                                    <tr dir-paginate="account in deActList | orderBy:'-DateRegistered' | itemsPerPage: 10 " pagination-id="newsPagination3" repeat-loading>
+                                        <td><center>{{account.Email}}</center></td>
+                                        <td><center>{{account.Status}}</center></td>
+                                        <td><center>{{account.DateRegistered}}</center></td>
+                                
+                                        <td><center>
+                                        <a href  = "#" ng-click="showInfo(account)">View</a>/
+                                        <a href  = "#" ng-show="account.Status=='Active'" ng-click="inactiveAccount(account)">Deactivate</a> 
+                                         <a href  = "#" ng-show="account.Status=='Inactive'" ng-click="activateAccount(account)">Activate</a>   
+                                        </center>
+                                        </td>
+
+
+
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                    <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                            
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="newsPagination3" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+                
+                        </div>
+                        
+                    </div>
+            </div>
+
+     </tab>
+</tabset>
+
+<!-- *********************************************************************************** -->
+
+             
+
+
+<br><br><br>
+
+
+                      
+                     
+        <!-- /#page-wrapper -->
+<script type="text/ng-template" id="AccountInfo.html">
+
+
+      <div class="modal-header">
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-user fa-3x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Account Information</h4> </li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+       
+        <div class="form-group">
+            
+            <div class="form-group">
+               <label>LastName</label>
+               <input class="form-control input-sm"  ng-model="accInfo.Lastname" id="disabledInput" disabled>
+           </div>
+
+           <div class="form-group">
+               <label>FirstName</label>
+               <input class="form-control input-sm" ng-model="accInfo.Firstname" id="disabledInput" disabled>
+           </div>
+
+           <div class="form-group">
+               <label>MiddleName</label>
+               <input class="form-control input-sm" ng-model="accInfo.Initial" id="disabledInput" disabled>
+           </div>
+
+
+      
+
+
+        </div>
+
+
+
+      </div>
+      <div class="modal-footer" >
+      <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+      </div>
+      </div>
+
+</script>

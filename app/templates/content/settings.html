@@ -1,0 +1,278 @@
+
+
+
+ <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <h1 class="page-header animated bounceInRight">
+
+                          <small><i class="fa fa-fw fa-cog fa-2x" id = "conhead"> </i></small> Settings
+                        </h1>
+                        <ol class="breadcrumb animated bounceInRight" >
+                            <li class="active">
+                                Lets you update User settings.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+
+
+<!-- Modal Change Password -->
+<script type="text/ng-template" id="ChangePasswordModal.html">
+
+      <div class="modal-header">
+
+
+            
+
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-lock fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Change Password</h4> </li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+       
+        <div class="form-group">
+            
+            <div class="form-group">
+               <label>Old Password</label>
+               <input type="password" class="form-control input-sm" placeholder="Enter Old password" ng-model="password.oldPass">
+           </div>
+
+           <div class="form-group">
+               <label>New Password</label>
+               <input type="password" class="form-control input-sm" placeholder="Repeat Old password" ng-model="password.newPass">
+           </div>
+
+           <div class="form-group">
+               <label>Confirm New Password</label>
+               <input type="password" class="form-control input-sm" placeholder="Enter New password" ng-model="password.newPassConfirm">
+           </div>
+        </div>
+
+
+      </div>
+
+      <div class="modal-footer" >
+      <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm" ng-click="changePassword(password.oldPass,password.newPass,password.newPassConfirm)" ng-disabled="password.newPass!=password.newPassConfirm">Save</button>
+      </div>
+      </div>
+
+</script>
+<!-- Modal Change Password -->
+
+
+
+
+
+
+
+<!-- Modal Change Email -->
+
+
+<script type="text/ng-template" id="ChangeEmailModal.html">
+
+      <div class="modal-header">
+
+            
+<ul class="list-inline">
+
+  <li><i class="fa fa-envelope-o fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Change Email Address</h4> </li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+       
+        <div class="form-group">
+            
+            <div class="form-group">
+               <label>Old Email Address</label>
+               <input class="form-control input-sm" placeholder="Old Email Address" ng-model="account.oldEmail">
+           </div>
+
+           <div class="form-group">
+               <label>New Email Address</label>
+               <input class="form-control input-sm" placeholder="New Email Address" ng-model="account.newEmail">
+           </div>
+
+           <div class="form-group">
+               <label>Confirm New Email Address</label>
+               <input class="form-control input-sm" placeholder="Confirm New Email Address" ng-model="account.confirmNewEmail">
+           </div>
+
+          <div class="form-group">
+               <label>Password</label>
+               <input type="password" class="form-control input-sm" placeholder="Enter your Password" ng-model="account.password">
+           </div>
+
+        </div>
+
+      </div>
+      <div class="modal-footer" >
+      <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm" ng-disabled="account.newEmail!=account.confirmNewEmail && !account.oldEmail && !account.password" ng-click="changeEmailAddress(account.oldEmail,account.newEmail,account.password)">Save</button>
+      </div>
+      </div>
+ </script>
+
+<!-- Modal Edit Info -->
+
+
+
+<!-- Modal Account Information -->
+<script type="text/ng-template" id="StaffInfo.html">
+
+
+      <div class="modal-header">
+<ul class="list-inline">
+
+  <li><i class="fa fa-fw fa-user fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Account Information</h4> </li>
+ 
+</ul>
+      </div>
+
+      <div class="modal-body">
+       
+        <div class="form-group">
+            
+            <div class="form-group">
+               <label>LastName</label>
+               <input class="form-control input-sm" placeholder="Enter Lastname" ng-model="pioInfo.val.Lastname">
+           </div>
+
+           <div class="form-group">
+               <label>FirstName</label>
+               <input class="form-control input-sm" placeholder="Enter Firstname" ng-model="pioInfo.val.Firstname">
+           </div>
+
+           <div class="form-group">
+               <label>MiddleName</label>
+               <input class="form-control input-sm" placeholder="Enter MiddleName" ng-model="pioInfo.val.Initial">
+           </div>
+
+
+        </div>
+
+
+
+      </div>
+      <div class="modal-footer" >
+      <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm" ng-click="updateAccountInfo(pioInfo.val.Lastname,pioInfo.val.Firstname,pioInfo.val.Initial)">Save</button>
+      </div>
+      </div>
+
+</script>
+
+<!-- Modal Account Information -->
+
+
+
+
+
+       
+
+
+
+<!-- CONTENT -->
+
+              <div class="row" >
+
+
+                    <!-- /.col-sm-4 -->
+                    <div class="col-sm-4 animated fadeInUp" >
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title txtpanb">Change Password</h3>
+                            </div>
+                            <div class="panel-body">
+                               <a  href="#" ng-click="openChangePassModal()">Click to Update</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- /.col-sm-4 -->
+                    <div class="col-sm-4 animated fadeInUp">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <h3 class="panel-title txtpany">Change Email Address</h3>
+                            </div>
+                            <div class="panel-body">
+                                <a  href="#" ng-click="openChangeEmailModal()">Click to Update</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- /.col-sm-4 -->
+                    <div class="col-sm-4 animated fadeInUp">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <h3 class="panel-title txtpang">Account Information</h3>
+                            </div>
+                            <div class="panel-body">
+                                <a href="#" ng-click="openAccountInfoModal()">Click to Update</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+
+
+<!-- CONTENT --> 
+
+
+
+ <br> <br> <br> <br> <br> <br> <br> <br> <br><br> <br> <br><br> <br> <br><br> <br><br>
+
+
+                      
+                        <div class="panel panel-default animated fadeIn" id ="dork">
+
+
+                            <div class="panel-body">
+                               
+                                
+                            
+                        <center>
+                       
+                      <h4 id= "foot1"> MarileNews </h4>
+                          <h4 id= "foot2">  © 2015 || All Rights Reserved</h4>
+
+                        </center>
+
+               
+                <!-- /.row -->
+
+                        </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+
+
+<div>

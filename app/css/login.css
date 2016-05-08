@@ -1,0 +1,222 @@
+TT/* ------ post.html--------*/
+
+#marko{
+font-size: 15px;
+ color:#DEC71B;
+font-weight:bold;
+margin: auto;
+margin-top: 13px;
+
+
+
+
+}
+
+
+/* ------ post.html--------*/
+
+
+body{
+background:url('images/galasi.jpg') no-repeat center center;
+
+
+}
+
+
+#bod{
+
+  
+
+}
+
+#wholhead
+{
+background-color: #17233B;
+width: 100%;
+
+height: 50px;
+
+
+}
+
+#panhead
+{
+background-color: #17233B;
+
+
+
+}
+
+
+#adm
+{
+font-size: 15px;
+font-weight: bold;
+color: white;
+
+}
+
+#padbody
+{
+background-color: #1C2B4A ;
+}
+
+#forpass
+{
+color: white ;
+
+}
+
+#contain
+{
+width: 90%;
+
+margin: auto;
+}
+
+
+
+
+.modal-header {
+  height: 50px;
+ 
+ }
+
+ .modal-footer {
+  height: 55px;
+  margin: auto;
+ 
+ }
+ .modal-title{
+
+ 	font-size: 13px;
+ 	font-weight: bold;
+ } 
+
+
+#consi{
+
+
+}
+
+#myModal{
+
+	margin-top: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-------------------------
+	Simple reset
+--------------------------*/
+
+
+*{
+	margin:0;
+	padding:0;
+}
+
+
+/*-------------------------
+	General Styles
+--------------------------*/
+
+
+html{
+	/* This image will be displayed fullscreen */
+	background:url('admin/images/galasi.jpg') no-repeat center center;
+	
+	/* Ensure the html element always takes up the full height of the browser window */
+	min-height:100%;
+	
+	/* The Magic */
+	background-size:cover;
+}
+
+body{
+	/* Workaround for some mobile browsers */
+	min-height:100%;
+	font:14px/1.3 'Segoe UI',Arial, sans-serif;
+}
+
+a, a:visited {
+	outline:none;
+	color:#1c4f64;
+}
+
+a:hover{
+	text-decoration:none;
+}
+
+section, footer, header{
+	display: block;
+}
+
+
+/*----------------------------
+	The Footer
+-----------------------------*/
+
+
+footer{
+	background-color: #111111;
+	bottom: 0;
+	box-shadow: 0 -1px 2px rgba(0,0,0,0.4);
+	height: 45px;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	z-index: 100000;
+}
+
+footer h2{
+	color: #EEEEEE;
+	font-size: 14px;
+	font-weight: normal;
+	left: 50%;
+	margin-left: -400px;
+	padding: 13px 0 0;
+	position: absolute;
+	width: 540px;
+}
+
+footer h2 i{
+	font-style:normal;
+	color:#888;
+}
+
+footer a.tzine,a.tzine:visited{
+	color: #999999;
+	font-size: 12px;
+	left: 50%;
+	margin: 16px 0 0 110px;
+	position: absolute;
+	text-decoration: none;
+	top: 0;
+}
+
+footer a i{
+	color:#ccc;
+	font-style: normal;
+}
+
+footer a i b{
+	color:#c92020;
+	font-weight: normal;
+}
+
+#btn-login{
+
+	padding-bottom: 100px;
+}

@@ -1,0 +1,327 @@
+
+
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+
+                    <div class="col-lg-12">
+
+                        <h1 class="page-header animated bounceInRight">
+
+                          <small><i class="fa fa-fw fa-tint fa-2x" id = "conhead"> </i></small> Flood Update
+                        </h1>
+                        <ol class="breadcrumb animated bounceInRight" >
+                            <li class="active">
+                                 Lets you view flood updates.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- /.row -->
+
+
+
+
+
+
+ <!-- Modal Edit Flood -->
+ <script type="text/ng-template" id="NewFlood.html">  
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+
+
+
+            
+
+<ul class="list-inline" >
+
+  <li><i class="fa fa-fw fa-tint fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Flood Update</h4> </li>
+
+</ul>
+
+
+      </div>
+
+      <div class="modal-body">
+       
+         <div class="form-group -sm">
+       <div class="form-group">
+               <label>Location</label>
+               <input class="form-control input-sm" placeholder="Enter location" ng-model="flood.location">
+           </div>
+
+                  <div class="form-group">
+            <label>Barangay</label>
+                <select  class="form-control" ng-model="SelectedBarangay" ng-change="LoadBarangay(SelectedBarangay)" data-ng-options="brgyList as brgyList.name for brgyList in brgyList">
+                    <option value="">Select Barangay</option>
+                </select>
+                  <br>
+                  <input type="text" class="form-control input-sm" ng-disabled="currentID<17" value = {{edit.brgy}} ng-model="edit.brgy">
+           </div>
+
+             <div class="form-group">
+               <label>Flood Status</label>
+                            <select  class="form-control"  ng-model="floodType" ng-change="changedValue1(floodType)" 
+     data-ng-options="floodStatus as floodStatus.name for floodStatus in floodStatus">
+    <option value="">Select Status</option>
+</select>
+               
+          </div>
+
+          <div class="form-group">
+               <label>Road Status</label>
+                            <select  class="form-control"  ng-model="floodWayType" ng-change="changedWayValue(floodWayType)" 
+                         data-ng-options="roadWay as roadWay.name for roadWay in roadWay">
+                    <option value="">Select Status</option>
+                    </select>
+               
+          </div>
+
+          <div class="form-group">
+              <form novalidate>
+
+   
+                <img ng-src="{{dummy.images[0]}}" width="285" height="150" ng-init="dummy.images[0] = def.image" /><br />
+
+                          <ul class = "list-inline">
+                          
+                          <li>  
+                          <span class="file-input btn btn-sm btn-primary btn-file">Pick an image-file<input type="file" ng-model="dummy.images" accept="image/*" multiple app-filereader/> 
+                           </span>  
+                          </li> 
+
+                          <li> 
+                          <button ng-click="dummy.images[0] = def.image" class = "file-input btn btn-sm btn-success">Set Default Image
+                          </button>
+                          </li> 
+
+                          </ul>
+
+                          <br/>
+
+                          </form>
+
+        </div>
+
+
+
+            <textarea class="form-control" rows="6"  style="resize:none;" placeholder="Input Message" ng-model="flood.description"> </textarea>
+
+
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-sm" ng-click="closeFloodModal()">Close</button>
+        <button type="button" class="btn btn-primary btn-sm" ng-click="saveFloodUpdate()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+ <!-- Modal Edit Flood -->
+
+
+
+
+
+
+
+<!-- CONTENT ---->
+
+
+<div class="row">
+<div class="col-lg-12"> 
+   
+
+  <tabset>
+       <tab  heading="Active" active="tab.active" disable="tab.disabled">
+
+
+                <table class="table table-striped table-bordered table-hover footable toggle-medium" ng-controller="FloodCtrl">
+                    <thead>
+                         <th>Barangay</th>
+
+                         <th >Location</th>
+                          <th>Status</th>
+                         <th >Image</th>
+                         <th >Date Posted</th>
+                         <th >Posted by</th>
+                         <th >Action</th>
+                     </thead>
+
+                     <tbody>
+
+                         <tr dir-paginate="floodList in floodList | reverse | itemsPerPage: 10" pagination-id="floodPagination" repeat-loading>
+
+                             <td>{{floodList.Barangay}}</td>
+
+
+                             <td>{{floodList.Location}}</td>
+
+                             <td>
+                             
+                             {{floodList.Status}}
+
+
+                             </td>
+                              <td><center><img src="{{floodList.Image}}" width="75" height="75"></center></td>
+
+
+                             <td>{{floodList.DatePosted}}</td>
+
+                            <td>{{floodList.PostedBy}}</td>
+
+          
+
+
+                               <td>
+                              <a data-toggle="modal" ng-click="editFlood(floodList)" href="#">Edit </a>/ <a href = "#"  ng-show="floodList.ReportStatus=='Active'" ng-click="hideReport(floodList)">Hide</a>
+                              <a href = "#" ng-click="showReport(floodList)" ng-show="floodList.ReportStatus=='Inactive'">Show</a>
+
+                             </td>
+                          </tr>
+
+
+                     </tbody>
+                 </table>
+                    <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                            
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="floodPagination" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+                       <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="newFlood()">
+                     New 
+                    </button>
+          
+          </tab>
+
+
+
+<tab heading="Inactive">
+       
+                    <table class="table table-striped table-bordered table-hover footable toggle-medium">
+                    <thead>
+                         <th>Barangay</th>
+
+                         <th >Location</th>
+                          <th>Status</th>
+                         <th >Image</th>
+                         <th >Date Posted</th>
+                         <th >Posted by</th>
+                         <th >Action</th>
+                     </thead>
+
+                     <tbody ng-controller="FloodCtrl">
+
+                         <tr dir-paginate="floodList in InactiveReport | reverse | itemsPerPage: 10" pagination-id="floodPagination" repeat-loading>
+
+                             <td>{{floodList.Barangay}}</td>
+
+
+                             <td>{{floodList.Location}}</td>
+
+                             <td>
+                             
+                             {{floodList.Status}}
+
+
+                             </td>
+                              <td><center><img src="{{floodList.Image}}" width="75" height="75"></center></td>
+
+
+                             <td>{{floodList.DatePosted}}</td>
+
+                            <td>{{floodList.PostedBy}}</td>
+
+          
+
+
+                               <td>
+                              <a data-toggle="modal" ng-click="editFlood(floodList)" href="#">Edit </a>/ <a href = "#"  ng-show="floodList.ReportStatus=='Active'" ng-click="hideReport(floodList)">Hide</a>
+                              <a href = "#" ng-click="showReport(floodList)" ng-show="floodList.ReportStatus=='Inactive'">Show</a>
+                             </td>
+                          </tr>
+
+
+                     </tbody>
+                 </table>
+                    <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="floodPagination" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+                
+
+   </tab>
+       
+      </tabset>
+
+        </div>
+                 
+
+    </div>
+</div>
+
+        
+</div>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+                           <!-- Footer ---->   
+
+                        <div class="panel panel-default animated fadeIn" id ="dork">
+
+
+                            <div class="panel-body">
+                               
+                                
+                            
+                        <center>
+                       
+                          <h4 id= "foot1"> MarileNews </h4>
+                          <h4 id= "foot2">  © 2015 || All Rights Reserved</h4>
+
+                        </center>
+
+               
+ 
+
+                        </div>
+          
+
+                      </div>
+
+                        <!-- Footer ---->  
+
+
+
+
+ 

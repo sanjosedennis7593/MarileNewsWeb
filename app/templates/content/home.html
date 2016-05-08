@@ -1,0 +1,375 @@
+
+<div id="page-wrapper" >
+
+    <div class="container-fluid" >
+
+                <!-- Page Heading -->
+                <div class="row">
+
+                    <div class="col-lg-12">
+
+                        <h1 class="page-header animated bounceInRight">
+
+                          <small><i class="fa fa-fw fa-home fa-2x" id = "conhead"> </i></small>  Home 
+                        </h1>
+                        <ol class="breadcrumb animated bounceInRight" >
+                            <li class="active">
+                                Welcome to Marilenews!
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+               
+
+
+                <div class="row"> 
+                    
+                      <div class="col-lg-3 col-md-4 animated fadeInUp">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <i class="fa fa-pencil fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                 
+                                        <div class = "txtpanb">Post</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ui-sref=".post" href="#" ng-click="showPost()">
+                                <div class="panel-footerb pans">
+                                     <span class="pull-left" >Click to View</span>
+                                    <span class="pull-right"  ><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+
+
+                   <div class="col-lg-3 col-md-4 animated fadeInUp" >
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-7">
+                                       <i class="fa fa-refresh fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-5 text-right">
+                                       
+                                        <div  class="txtpang">Update News</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ui-sref=".update" ng-click="showUpdate()">
+                                <div class="panel-footerg pans">
+                                     <span class="pull-left"  id = "panfoot">Click to View</span>
+                                    <span class="pull-right"  id = "panfoot"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                      <div class="col-lg-3 col-md-4 animated fadeInUp" >
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-7">
+                                       <i class="fa fa-archive fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-5 text-right">
+                                       
+                                        <div  class="txtpanr">News Archive</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ui-sref=".archivenews" ng-click="showArchive()">
+                             <div class="panel-footerr pans">
+                                     <span class="pull-left"  id = "panfoot">Click to View</span>
+                                    <span class="pull-right"  id = "panfoot"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+
+
+                  <div class="col-lg-3 col-md-4 animated fadeInUp" ng-hide="currentAccountStatus!='Admin' || currentAccountStatus !='SuperAdmin'">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                         <i class="fa fa-mobile fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                    
+                                        <div class="txtpany">Mobile Content</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ui-sref=".mobilecontent" ng-click="showMobileContent()">
+                                <div class="panel-footery pans">
+                                    <span class="pull-left" id = "panfoot">Click to View</span>
+                                    <span class="pull-right"  id = "panfoot"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"  ></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-lg-3 col-md-4 animated fadeInUp">
+                        <div class="panel panel-purple">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                         <i class="fa fa-bus fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                            
+                                        <div class="txtpanp">Traffic Update</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ui-sref=".traffic" ng-click="showTraffic()">
+                                <div class="panel-footerp pans">
+                                    <span class="pull-left" id = "panfoot">Click to View</span>
+                                    <span class="pull-right"  id = "panfoot"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix" ></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+               
+
+
+
+
+
+                    <div class="col-lg-3 col-md-4 animated fadeInUp">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                       <i class="fa fa-comments fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                  
+                                        <div class="txtpanr">Interactive Chat</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ui-sref=".chat" ng-click="showFeedback()">
+                                <div class="panel-footerr pans">
+                                     <span class="pull-left"  id = "panfoot">Click to View</span>
+                                    <span class="pull-right"  id = "panfoot"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+            
+
+
+
+                      <div class="col-lg-3 col-md-4 animated fadeInUp">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                       <i class="fa fa-tint fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                  
+                                        <div class="txtpanb">Flood Update</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ui-sref=".flood" ng-click="showJobs()">
+                                <div class="panel-footerb pans">
+                                     <span class="pull-left"  id = "panfoot">Click to View</span>
+                                    <span class="pull-right"  id = "panfoot"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+              
+
+
+
+                     <div class="col-lg-3 col-md-4 animated fadeInUp">
+                        <div class="panel panel-purple">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <i class="fa fa-exclamation-triangle fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                 
+                                        <div class="txtpanp">Incident Report</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ui-sref=".incident" ng-click="showEvents()">
+                                <div class="panel-footerp pans">
+                                     <span class="pull-left" id = "panfoot">Click to View</span>
+                                    <span class="pull-right" id = "panfoot"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+
+
+                   <div class="col-lg-3 col-md-4 animated fadeInUp">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                       <i class="fa fa-user-md fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                  
+                                        <div class="txtpang">Jobs</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a  ui-sref=".jobs" ng-click="showJobs()">
+                                <div class="panel-footerg pans">
+                                     <span class="pull-left"  id = "panfoot">Click to View</span>
+                                    <span class="pull-right"  id = "panfoot"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+              
+              
+
+
+                     <div class="col-lg-3 col-md-4 animated fadeInUp">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <i class="fa fa-calendar fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                 
+                                        <div class="txtpany">Events</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a ui-sref=".events" ng-click="showEvents()">
+                                <div class="panel-footery pans ">
+                                     <span class="pull-left" id = "panfoot">Click to View</span>
+                                    <span class="pull-right" id = "panfoot"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+               
+
+
+
+                    <div class="col-lg-3 col-md-4 animated fadeInUp">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                       <i class="fa fa-bar-chart fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                  
+                                        <div class="txtpang">Feedback</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a  ui-sref=".feedback" href="#" ng-click="showFeedback()">
+                                <div class="panel-footerg pans">
+                                     <span class="pull-left"  id = "panfoot">Click to View</span>
+                                    <span class="pull-right"  id = "panfoot"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+            
+
+
+
+
+                     <div class="col-lg-3 col-md-4 animated fadeInUp" ng-hide="currentAccountStatus!='Admin' || currentAccountStatus !='SuperAdmin'">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <i class="fa fa-users fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                  
+                                        <div class="txtpanr">Accounts</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a  ui-sref=".accounts" ng-click="showAccount()">
+                                <div class="panel-footerr pans">
+                                     <span class="pull-left" id = "panfoot">Click to View</span>
+                                    <span class="pull-right" id = "panfoot"><i class="fa fa-arrow-circle-right"></i></span>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+          
+                   <br><br>
+
+
+                  
+            <div class="panel panel-default animated fadeIn" id ="dork">
+
+
+                            <div class="panel-body">
+                               
+                                
+                            
+                        <center>
+                       
+                           <h4 id= "foot1"> MarileNews </h4>
+                          <h4 id= "foot2">  © 2015 || All Rights Reserved</h4>
+
+                        </center>
+
+     
+
+                        </div>
+         
+                    </div>
+
+
+
+
+        </div>      
+  </div>
+
+<!-- Content ---->
+
+
+
+

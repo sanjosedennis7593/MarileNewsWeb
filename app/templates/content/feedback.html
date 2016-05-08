@@ -1,0 +1,109 @@
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+
+                    <div class="col-lg-12">
+
+                        <h1 class="page-header animated bounceInRight">
+
+                          <small><i class="fa fa-fw fa-comment fa-2x" id = "conhead"> </i></small>  Feedback
+                        </h1>
+                        <ol class="breadcrumb animated bounceInRight" >
+                            <li class="active">
+                                 Lets you view the comments.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+              
+
+
+
+
+
+
+
+<!-- CONTENT ---->
+
+               <div class="row" >
+                     <div class="col-lg-12">
+                    <br>
+                        <div class="table-responsive animated fadeIn">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Date</th>
+                                        <th>Action</th>
+                                       
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr dir-paginate="feedback in feedback | orderBy:'-Date' | itemsPerPage: 10" pagination-id="newsPagination" repeat-loading>
+                                        <td>{{feedback.Name}}</td>
+                                         <td>{{feedback.Email}}</td>
+                                        <td>{{feedback.Date}}</td>
+                                        <td><a href="#" ng-click="showModalContent(feedback.Name,feedback.Email,feedback.FeedbackDesc)">View</a></td>
+                                    </tr>
+                
+                                </tbody>
+                            </table>
+
+                              <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="newsPagination" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+                        </div>       
+                    </div>
+            </div>
+        
+ <br><br><br><br><br><br><br><br><br>
+
+    <div class="panel panel-default animated fadeIn" id ="dork">
+
+
+                            <div class="panel-body">
+                               
+                                
+                            
+                        <center>
+                       
+                          <h4 id= "foot1"> MarileNews </h4>
+                          <h4 id= "foot2">  © 2015 || All Rights Reserved</h4>
+
+                        </center>
+
+     
+
+                        </div>
+         
+                    </div>
+</div>
+
+
+<script type="text/ng-template" id="FeedbackModal.html">
+        <div class="modal-header">
+            <h3 id = "edinew">Feedback Content</h3>
+        </div>
+        <div class="modal-body">
+           
+            <label>Email</label><input type="text"  id="disabledInput" class="form-control" ng-model="feedbackObject.email" disabled><br>
+                <label>Name</label><input type="text"  id="disabledInput" class="form-control" ng-model="feedbackObject.name" disabled><br>
+            <label>Message</label>
+             <textarea class="form-control" rows="3"  id="disabledInput" style="resize:none;" id="texa" ng-model="feedbackObject.desc" disabled>
+        
+            </textarea>
+            
+
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-warning" ng-click="closeModal()">Close</button>
+        </div>
+    </script>
+

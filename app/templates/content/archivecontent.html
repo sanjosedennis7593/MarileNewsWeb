@@ -1,0 +1,102 @@
+  <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+   <div class="row">
+
+                    <div class="col-lg-12">
+
+                        <h1 class="page-header animated bounceInRight">
+
+                          <small><i class="fa fa-fw fa-archive" id = "conhead"> </i></small> Archive Content
+                        </h1>
+                        <ol class="breadcrumb animated bounceInRight" >
+                            <li class="active">
+                                 Lets you update the news.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+       <div class="col-lg-12">
+                    <br>
+                        <div class="table-responsive animated fadeIn">
+                            <table class="table table-bordered table-hover" ng-controller="ArchiveContentCtrl">
+                                <thead>
+                                    <tr>
+                                        <th><center>Name</center></th>
+                                       <!-- <th>Description</th> -->
+                                        <th><center>Date Posted</center></th>
+                                        <th><center>Image</center></th>
+                                         <th><center>Posted by</center></th>
+                                        <th><center>Action</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr dir-paginate="archive in archiveList | orderBy:'-DatePosted' | itemsPerPage: 10 " pagination-id="newsPagination8" repeat-loading>
+
+                                        <td>{{archive.Title}}</td>
+                                        <!--  <td>{{news.Description}}</td> -->
+                                        <td>{{archive.DatePosted}}</td>
+                                        <td><center><img src="{{archive.Image}}" width="75" height="75"></center></td>
+                                      <td> <center>{{archive.Email}}</center> </td>  
+                                        <td>                          
+                                         <a href="#" data-toggle="modal" data-target="#myModal" ng-click="displayModal(archive)">Edit</a> /
+                                        <a href="#" ng-click="deleteArchiveNews(archive.$id)">Delete</a>  
+                                    
+                                    </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                         <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                            
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="newsPagination8" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+                        
+                        </div>
+                    </div>
+  </tab>
+
+   
+
+               
+          
+</div>
+</div>
+
+
+    <script type="text/ng-template" id="ArchiveModal.html">
+        <div class="modal-header">
+            <h3>Update News Content</h3>
+        </div>
+        <div class="modal-body">
+           
+             <input type="text" class="form-control" ng-model="newsObject.Title"><br>
+             <textarea class="form-control" rows="3" style="resize:none;" id="texa" ng-model="newsObject.Description">
+            {{newsObject.desc}}
+            </textarea>
+       
+
+<br>
+       <input type="url" placeholder="Enter URL" class="form-control" ng-model="newsObject.Url"><br>
+ <br/>
+    <img ng-src="{{dummy.images[0]}}" width="250" height="150" ng-init="dummy.images[0] = newsObject.Image" /><br />
+     <span class="file-input btn btn-sm btn-primary btn-file">
+    Pick an image-file <input type="file" ng-model="dummy.images" accept="image/*" multiple app-filereader/></span>
+    <button ng-click="dummy.images[0] = def.image" ng-show="dummy.images!=def.image" class = "file-input btn btn-sm btn-success">Set Default Image</button><br/>
+
+
+
+
+        </div>
+
+
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="updateNews(newsObject,dummy.images[0])">OK</button>
+            <button class="btn btn-warning" ng-click="closeModal()">Cancel</button>
+        </div>
+    </script>

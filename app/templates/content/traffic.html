@@ -1,0 +1,298 @@
+    
+    <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+
+                    <div class="col-lg-12">
+
+                        <h1 class="page-header animated bounceInRight">
+
+                          <small><i class="fa fa-fw fa-road fa-2x" id = "conhead"> </i></small> Traffic Update
+                        </h1>
+
+                        <div class="breadcrumb  animated bounceInRight">
+                            <li class="active">
+                              Lets you view the traffic updates..
+
+                            </li>
+                        </div>
+
+                    
+                    </div>
+                </div>
+                <!-- /.row -->
+
+
+
+
+<!-- Content -->
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+                    <br>
+                        <div class="table-responsive animated fadeIn" >
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Location</th>
+                                        <th>Time</th>
+                                        <th>Northbound</th>
+                                        <th>Southbound</th>
+                                        <th>Posted by</th>
+                     
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                
+                                <tbody>
+
+                                    <tr dir-paginate="traffic in trafficList | orderBy:'-MilitaryTime' | itemsPerPage: 10" pagination-id="newsPagination" repeat-loading>
+                                      <td>{{traffic.Location}}</td>
+                                       
+                        
+                                      <td>{{traffic.Time}}</td>
+                                      <td>{{traffic.Northbound}}</td>
+                                      <td>{{traffic.Southbound}}</td>
+                                      <td>{{traffic.Email}}</td>
+                              
+                                      <td>
+                                            <a href = "#" data-toggle="modal" ng-click="editModal(traffic)">Edit</a> /
+                                       
+                                            <a href = "#" ng-click="removeTraffic(traffic.$id)">Delete</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                             <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="newsPagination" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+
+                      
+                </div>
+
+                  <button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" ng-click="openModal('new')" id = "addbutts">
+                        New    
+
+                        </button>
+    </div>
+       
+</div><!-- tab content -->
+
+  
+<!-- Content --> 
+
+
+
+
+
+
+     <br><br><br><br><br><br>
+
+      <div class="panel panel-default animated fadeIn" id ="dork">
+
+
+                            <div class="panel-body">
+                               
+                                
+                            
+                  <center>
+                       
+                           <h4 id= "foot1"> MarileNews </h4>
+                          <h4 id= "foot2">  © 2015 || All Rights Reserved</h4>
+
+                        </center>
+
+     
+
+                        </div>
+         
+        </div>
+
+
+
+
+</div><!-- end of container -->
+
+
+
+
+
+
+
+        <!-- Modal Traffic -->
+
+
+       <script type="text/ng-template" id="NewTraffic.html">
+
+      <div class="modal-header">
+
+
+
+<ul class="list-inline" id = "countlist">
+
+  <li><i class="fa fa-fw fa-bus fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Traffic Update</h4> </li>
+ 
+</ul>
+      </div>
+
+
+      <div class="modal-body">
+       
+         <div class="form-group -sm">
+            
+            <div class="form-group">
+               <label>Location</label>
+               <input class="form-control input-sm" placeholder="Enter location" ng-model="traffic.location">
+           </div>
+
+           <div class="form-group">
+            <label>Barangay</label>
+                <select  class="form-control" ng-model="SelectedBarangay" ng-change="LoadBarangay(SelectedBarangay)" data-ng-options="brgyList as brgyList.name for brgyList in brgyList">
+                    <option value="">Select Barangay</option>
+                </select>
+                  <br>
+                  <input type="text" class="form-control input-sm" placeholder="If others, please specify" ng-disabled="currentID<17" value = {{edit.brgy}} ng-model="edit.brgy">
+           </div>
+
+            <div class="form-group">
+               <label>Time</label>
+           <input type="time" class="form-control input-sm" placeholder="Enter barangay" ng-model="traffic.time" value={{traffic.time}}>
+      
+           </div>
+
+            <div class="form-group">
+               <label>Northbound</label>
+                            <select  class="form-control"  ng-model="TrafficStatusSelected1" ng-change="changedValue1(TrafficStatusSelected1)" 
+     data-ng-options="TrafficStatusNB as TrafficStatusNB.name for TrafficStatusNB in TrafficStatusNB">
+    <option value="">Select Status</option>
+</select>
+ 
+               
+          </div>
+            <div class="form-group">
+               <label>Southbound</label>
+               <select class="form-control" ng-model="TrafficStatusSelected2" ng-change="changedValue2(TrafficStatusSelected2)" 
+     data-ng-options="TrafficStatusSB as TrafficStatusSB.name for TrafficStatusSB in TrafficStatusSB">
+    <option value="">Select Status</option>
+</select>
+
+           </div>
+        </div>
+
+         <div class="form-group">
+               <label>Alternative Route (North)</label>
+               <input class="form-control input-sm" placeholder="Please specificy the location" ng-model="traffic.north">
+           </div>
+          <div class="form-group">
+               <label>Alternative Route (South)</label>
+               <input class="form-control input-sm" placeholder="Please specificy the location" ng-model="traffic.south">
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>
+        <button type="button" class="btn btn-primary btn-sm" ng-click="saveTraffic()">Save changes</button>
+      </div>
+  
+
+  </script>
+
+
+
+        <!-- Modal Traffic -->
+
+
+
+
+         <!-- Modal Traffic -->
+
+       <script type="text/ng-template" id="EditTraffic.html">   
+
+          <div class="modal-header">
+
+
+
+<ul class="list-inline" id = "countlist">
+
+  <li><i class="fa fa-fw fa-bus fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Traffic Update</h4> </li>
+ 
+</ul>
+      </div>
+
+       
+      <div class="modal-body">
+       
+         <div class="form-group -sm">
+            
+            <div class="form-group">
+               <label>Location</label>
+               <input class="form-control input-sm" placeholder="Enter location" ng-model="edit.loc">
+           </div>
+
+           <div class="form-group">
+            <label>Barangay</label>
+                <select  class="form-control" ng-model="SelectedBarangay" ng-change="LoadBarangay(SelectedBarangay)" data-ng-options="brgyList as brgyList.name for brgyList in brgyList">
+                    <option value="">Select Barangay</option>
+                </select>
+                  <br>
+                  <input type="text" class="form-control input-sm" placeholder="If others, please specify" ng-disabled="currentID<17" ng-model="edit.brgy" value={{edit.brgy}}>
+           </div>
+
+            <div class="form-group">
+               <label>Time</label>
+           <input type="time" class="form-control input-sm" placeholder="Enter barangay" ng-model="edit.time" value={{edit.time}}>
+      
+           </div>
+
+            <div class="form-group">
+               <label>Northbound</label>
+                            <select  class="form-control"  ng-model="TrafficStatusSelected1" ng-change="changedValue1(TrafficStatusSelected1)" 
+     data-ng-options="TrafficStatusNB as TrafficStatusNB.name for TrafficStatusNB in TrafficStatusNB">
+    <option value="">Select Status</option>
+</select>
+ 
+               
+          </div>
+            <div class="form-group">
+               <label>Southbound</label>
+               <select class="form-control" ng-model="TrafficStatusSelected2" ng-change="changedValue2(TrafficStatusSelected2)" 
+     data-ng-options="TrafficStatusSB as TrafficStatusSB.name for TrafficStatusSB in TrafficStatusSB">
+    <option value="">Select Status</option>
+</select>
+
+           </div>
+           <div class="form-group">
+               <label>Alternative Route (North)</label>
+               <input class="form-control input-sm" placeholder="Please specify the location" ng-model="edit.north"
+               ng-init="edit.alternative.north=''">
+           </div>
+            <div class="form-group">
+               <label>Alternative Route (South)</label>
+               <input class="form-control input-sm" placeholder="Please specify the location" ng-model="edit.south" ng-init="edit.alternative.south=''">
+           </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>
+        <button type="button" class="btn btn-primary btn-sm" ng-click="updateTraffic(edit.trafficID,edit.loc,edit.brgy,edit.time,TrafficStatusNB,TrafficStatusSB,edit.alternative)">Save changes</button>
+      </div>
+  
+
+  </script>
+
+
+
+ 
+       <!-- Modal Traffic -->

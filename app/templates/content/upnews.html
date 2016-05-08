@@ -1,0 +1,201 @@
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+
+
+                <!-- Page Heading -->
+                <div class="row">
+
+                    <div class="col-lg-12">
+
+                        <h1 class="page-header animated bounceInRight">
+
+                          <small><i class="fa fa-fw fa-refresh fa-2x" id = "conhead"> </i></small> Update News
+                        </h1>
+                        <ol class="breadcrumb animated bounceInRight" >
+                            <li class="active">
+                                 Lets you update the news.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+
+         <!-- Modal Update News ---->
+
+    <script type="text/ng-template" id="myModalContent.html">
+       
+          <div class="modal-header">
+
+
+
+<ul class="list-inline" id = "countlist">
+
+  <li><i class="fa fa-fw fa-refresh fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Update News Content</h4> </li>
+ 
+</ul>
+      </div>
+        <div class="modal-body">
+           
+             <input type="text" class="form-control" ng-model="newsObject.Title"><br>
+             <textarea class="form-control" rows="3" style="resize:none;" id="texa" ng-model="newsObject.Description">
+            {{newsObject.desc}}
+            </textarea>
+       
+
+<br>
+       
+
+<br/>
+    <img ng-src="{{dummy.images[0]}}" width="250" height="150" ng-init="dummy.images[0] = newsObject.Image" /><br />
+     <span class="file-input btn btn-sm btn-primary btn-file">
+    Pick an image-file <input type="file" ng-model="dummy.images" accept="image/*" multiple app-filereader/></span>
+    <button ng-click="dummy.images[0] = def.image" ng-show="dummy.images!=def.image" class = "file-input btn btn-sm btn-success">Set Default Image</button><br/>
+
+
+        </div>
+
+
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-click="save(newsObject.$id,newsObject.Title,newsObject.Description,dummy.images[0])">OK</button>
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+
+ <!-- Modal Update News ---->
+
+<!-- Content -->
+
+      
+  <tabset>
+
+   
+    <tab  heading="Active" active="tab.active" disable="tab.disabled">
+      <div class="row">
+
+                <div class="col-lg-12">
+                    <br>
+                        <div class="table-responsive animated fadeIn">
+                            <table class="table table-bordered table-hover" ng-controller="NewsList">
+                                <thead>
+                                    <tr>
+                                        <th><center>Name</center></th>
+                                       <!-- <th>Description</th> -->
+                                        <th><center>Date Posted</center></th>
+                                        <th><center>Image</center></th>
+                                         <th><center>Posted by</center></th>
+                                        <th><center>Action</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr dir-paginate="news in newslist | reverse | itemsPerPage: 10 " pagination-id="newsPagination" repeat-loading>
+
+                                        <td>{{news.Title}}</td>
+                                        <!--  <td>{{news.Description}}</td> -->
+                                        <td>{{news.DatePosted}}</td>
+                                        <td><center><img src="{{news.Image}}" width="75" height="75"></center></td>
+                                      <td> <center>{{news.Email}}</center> </td>  
+                                        <td>                          
+                                         <a href="#" data-toggle="modal" data-target="#myModal" ng-click="openModal(news)">Edit</a> /
+                                        <a href="#" ng-click="hideNews(news)" ng-show="news.Status=='Active'">Hide</a>  
+                                        <a href="#" ng-click="ActivateNews(news)" ng-show="news.Status=='Inactive'">Show</a>  
+                                    </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                         <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                            
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="newsPagination" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+                        
+                        </div>
+                    </div>
+                </div>
+    </tab>
+
+     <tab heading="Inactive">
+             <div class="row">
+                    <div class="col-lg-12">
+                    <br>
+                        <div class="table-responsive animated fadeIn">
+                            <table class="table table-bordered table-hover" ng-controller="NewsList">
+                                <thead>
+                                    <tr>
+                                        <th><center>Name</center></th>
+                                       <!-- <th>Description</th> -->
+                                        <th><center>Date Posted</center></th>
+                                        <th><center>Image</center></th>
+                   
+                                        <th><center>Action</center></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr dir-paginate="news in InactiveNewslist| orderBy:'-DatePosted' | itemsPerPage: 10 " pagination-id="newsPagination2" repeat-loading>
+
+                                        <td>{{news.Title}}</td>
+                                        <!--  <td>{{news.Description}}</td> -->
+                                        <td>{{news.DatePosted}}</td>
+                                        <td><center><img src="{{news.Image}}" width="75" height="75"></center></td>
+                           
+                                        <td>                          
+                                         <a href="#" data-toggle="modal" data-target="#myModal" ng-click="openModal(news)">Edit</a> /
+                                        <a href="#" ng-click="hideNews(news)" ng-show="news.Status=='Active'">Hide</a>  
+                                        <a href="#" ng-click="ActivateNews(news)" ng-show="news.Status=='Inactive'">Show</a>  
+                                    </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                         <div ng-controller="OtherController" class="col-xs-12 other-controller">
+                            
+                                  <div class="text-center">
+                                       <dir-pagination-controls boundary-links="true" pagination-id="newsPagination2" on-page-change="pageChangeHandler(newPageNumber)"></dir-pagination-controls>
+                                 </div>
+                        </div>
+                        
+                        </div>
+                    </div>
+                </div>
+
+     </tab>
+  </tabset>
+
+        
+     
+
+       <br>
+
+
+ <div class="panel panel-default animated fadeIn" id ="dork">
+
+
+                            <div class="panel-body">
+                               
+                                
+                            
+                      <center>
+                       
+                          <h4 id= "foot1"> MarileNews </h4>
+                          <h4 id= "foot2">  © 2015 || All Rights Reserved</h4>
+
+                        </center>
+
+               
+      
+
+                        </div>
+ 
+
+        </div>
+
+
+</div>

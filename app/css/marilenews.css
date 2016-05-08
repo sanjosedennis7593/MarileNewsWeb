@@ -1,0 +1,1006 @@
+
+/*!
+ * Start Bootstrap - SB Admin Bootstrap Admin Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Global Styles */
+
+
+
+body {
+    margin-top: 100px;
+    
+    background-color: white;
+}
+
+@media(min-width:768px) {
+    body {
+        margin-top: 50px;
+    }
+}
+
+#wrapper {
+    padding-left: 0;
+    width: 100%;
+
+}
+
+
+#wholog{
+
+    background-color: black;
+    height: 1000px;
+    width: 1000px;
+}
+
+#page-wrapper {
+     width: 100%;
+  
+    background-color: #fff;
+   height: 100%;
+}
+
+.huge {
+    font-size: 50px;
+    line-height: normal;
+}
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 225px;
+    }
+
+    #page-wrapper {
+        padding: 10px;
+        background-color: white;
+    }
+}
+
+/* Top Navigation */
+
+.top-nav {
+    padding: 0 15px;
+}
+
+.top-nav>li {
+    display: inline-block;
+    float: left;
+}
+
+.top-nav>li>a {
+    padding-top: 1px;
+    padding-bottom: 15px;
+    line-height: 20px;
+    color: #999;
+}
+
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+    color: #fff;
+    background-color: #000;
+}
+
+.top-nav>.open>.dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    border: 1px solid rgba(0,0,0,.15);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.top-nav>.open>.dropdown-menu>li>a {
+    white-space: normal;
+}
+
+ul.message-dropdown {
+    padding: 0;
+    max-height: 250px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+li.message-preview {
+    width: 275px;
+    border-bottom: 1px solid rgba(0,0,0,.15);
+}
+
+li.message-preview>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+li.message-footer {
+    margin: 5px 0;
+}
+
+ul.alert-dropdown {
+    width: 200px;
+}
+
+
+
+/* ------ sidenav--------*/
+
+@media(min-width:768px) {
+    .side-nav {
+        position: fixed;
+        top: 51px;
+        left: 225px;
+        width: 235px;
+        margin-left: -225px;
+        border: none;
+        border-radius: 0;
+        overflow-y: auto;
+        background-color: white;
+        bottom: 0;
+        overflow-x: hidden;
+        padding-bottom: 40px;
+    }
+
+    .side-nav>li>a {
+        width: 235px;
+    }
+
+
+/* ----Nav Hover Color #59ABE3  ----*/
+
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+        outline: none;
+        background: rgba(0,0,0,0.10)  !important;
+        box-shadow: inset 0 0 0.25em 0 rgba(0,0,0,0.125);
+    }
+}
+
+
+.side-nav>li>ul {
+    padding: 0;
+}
+
+.side-nav>li>ul>li>a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    color: #999;
+}
+
+
+
+.side-nav>li>ul>li>a:hover {
+    color: #fff;
+}
+
+/* Flot Chart Containers */
+
+.flot-chart {
+    display: block;
+    height: 400px;
+}
+
+.flot-chart-content {
+    width: 100%;
+    height: 100%;
+}
+
+/* Custom Colored Panels */
+
+.huge {
+    font-size: 20px;
+}
+
+.panel-green {
+    border-color: #5cb85c;
+}
+
+.panel-green > .panel-heading {
+    border-color: #5cb85c;
+    color: #fff;
+    background-color: #5cb85c;
+}
+
+.panel-green > a {
+    color: #5cb85c;
+}
+
+.panel-green > a:hover {
+    color: #3d8b3d;
+}
+
+.panel-red {
+    border-color: #d9534f;
+}
+
+.panel-red > .panel-heading {
+    border-color: #d9534f;
+    color: #fff;
+    background-color: #d9534f;
+}
+
+.panel-red > a {
+    color: #d9534f;
+}
+
+.panel-red > a:hover {
+    color: #b52b27;
+}
+
+.panel-yellow {
+    border-color: #f0ad4e;
+}
+
+.panel-yellow > .panel-heading {
+    border-color: #f0ad4e;
+    color: #fff;
+    background-color: #f0ad4e;
+}
+
+.panel-yellow > a {
+    color: #f0ad4e;
+}
+
+.panel-yellow > a:hover {
+    color: #df8a13;
+}
+
+
+
+
+
+#social{
+
+
+    padding-top: 5%;
+
+}
+.tileMe li {
+    display: inline;
+    float: left;
+}
+
+#con1{
+
+width: 28px;
+height: 28px;
+}
+
+
+#con1:hover {
+
+opacity: .5;
+filter:alpha(opacity=80); /* For IE8 and earlier */
+
+
+}
+
+
+
+/* ------ sidenav--------*/
+
+
+/* ------ home.html--------*/
+
+#sels{
+
+
+    width: 100%;
+  
+}
+
+#aside{
+
+
+    color:#17233B;
+  
+}
+
+#pic{
+
+
+    width: 32px;
+   height: 32px;
+   margin-bottom: 5px;
+
+
+  
+}
+
+
+
+#mars {
+
+color:#DEC71B;
+
+}
+
+
+#mars:hover{
+
+
+    color: #F5D76E;
+}
+
+
+
+
+
+#lista {
+
+margin: auto;
+position: fixed;
+
+}
+
+
+#wholenav{
+
+background-color: #1C2B4A;
+
+
+}
+
+
+
+
+
+#wholehead
+{
+background-color: #17233B;
+
+
+
+}
+
+
+#drop{
+
+color:#2ECC71;
+
+}
+
+
+#lista{
+
+
+}
+
+/* ------ spacing buttons --------*/
+.btn{
+margin-left:10px;
+}
+/* ------ spacing buttons --------*/
+
+
+/* ------ home.html--------*/
+
+#mains{
+
+font-size: 14px;
+
+
+}
+
+
+/* ------ home.html--------*/
+
+
+
+/* ------ login.html--------*/
+
+#logpic{
+
+     width: 32px;
+   height: 32px;
+
+ }
+
+#logtitle{
+padding: 0px;
+}
+/* ------ login.html--------*/
+
+
+
+/* ------New Admin --------*/
+
+
+
+#navcontainer ul
+{
+margin: 0;
+padding: 0;
+list-style-type: none;
+text-align: center;
+padding-left: 12px;
+padding-top: 11px;
+
+}
+
+#navcontainer ul li { display: inline; }
+
+#navcontainer ul li a
+{
+text-decoration: none;
+
+
+}
+
+
+
+#navcontainer ul li a:hover
+{
+
+}
+
+
+#usher > a:hover
+{
+
+
+ background: rgba(0,0,0,0.10) ;
+        
+
+}
+
+#admin{
+
+
+    color:white;
+
+}
+
+#torsu{
+
+
+    color:#DEC71B;
+
+}
+
+
+#cons{
+
+color:#DEC71B;
+}
+
+
+
+#tex{
+
+color:rgba(255,255,255,0.5);
+}
+
+
+
+
+
+
+#wholecont{
+
+    height: 100%;
+    position: relative;
+
+
+}
+
+#poos{
+
+color: black;
+
+font-size: 18px;
+font-weight: bold;
+
+}
+
+
+
+.txthom
+{
+
+  font-size:34px; 
+
+}
+
+
+#foot1
+{
+
+font-size: 11px;
+font-weight: bolder;
+}
+
+
+#foot2
+{
+font-size: 10px;
+font-weight: bold;
+
+}
+
+
+
+
+/* ------ Mainpage.html--------*/
+
+
+
+
+/* ------ Feedback.html--------*/
+
+
+
+
+
+#selects
+
+{
+
+    height: 20px;
+    font-size: 10px;
+    width: 100%;
+}
+
+
+
+/* ------ Feedback.html--------*/
+
+
+
+
+/* ------ upnews.html--------*/
+
+#texa{
+height: 120px;
+}
+
+
+
+.modal-dialog {
+  
+  padding-top: 100px;
+
+}
+
+
+}
+
+
+/* ------ upnews.html--------*/
+
+#consit{
+
+   list-style:  center;
+}
+
+
+/* ------ post.html--------*/
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  background: red;
+  cursor: inherit;
+  display: block;
+}
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
+
+
+
+/* ------ post.html--------*/
+
+
+
+/* ------ all tables--------*/
+
+#tabcon{
+
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+/* ------ all tables --------*/
+
+
+/* ------ mobcon.html--------*/
+
+
+/* ------ business--------*/
+
+#peso{
+
+
+  color: black;
+}
+
+
+/* ------ business--------*/
+
+
+/* ------ mobcon.html--------*/
+
+
+
+#dork{
+
+    width: 100%;
+    height: 100px;
+}
+
+/* ------ events.html--------*/
+#addbutts{
+
+
+    width: 45px;
+    height: 35px;
+}
+
+#conhead
+{
+
+  color: #22313F;
+  font-size:45px; 
+}
+
+#consadd
+{
+
+  color: #22313F;
+  font-size:20px; 
+}
+
+#modalheads{
+padding-bottom: 10px;
+vertical-align: middle;
+
+}
+
+#edinew{
+vertical-align: middle;
+font-weight: bold;
+
+
+}
+#consi{
+vertical-align: middle;
+
+}
+
+
+#countlist{
+
+padding-bottom: 20px;
+}
+
+
+/* ------ events.html--------*/
+
+
+#txtarea{
+
+    width: 650px;
+}
+
+
+#content-row {
+margin-top: 50px;
+}
+
+#volume-fees-row, #vehicle-class-row, #consignor-map-row, #buyer-map-row {
+    height: 450px;
+}
+
+.panel {
+    width: 100%;
+   height: 50%;
+}
+
+.panel-body {
+
+
+}
+
+
+/* ------ Change Panel Colors--------*/
+.panel-primary {
+  border-color: gray;
+}
+.panel-primary > .panel-heading {
+  color:#2574A9;
+  background-color: #1C2B4A;
+  border-color: #1C2B4A;
+}
+.panel-footerb {
+  padding: 10px 15px;
+  background-color: #2574A9;
+  border-top: 1px solid #dddddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.txtpanb{
+
+    color: #2574A9;
+    font-weight: bold;
+
+}
+
+
+/* ------ Change Panel Colors--------*/
+
+
+.panel-green {
+  border-color: gray;
+}
+.panel-green > .panel-heading {
+  color:#049372;
+  background-color:#1C2B4A;
+  border-color:#26A65B;
+}
+
+
+.panel-footerg {
+  padding: 10px 15px;
+  background-color: #049372;
+  border-top: 1px solid #dddddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.txtpang{
+
+   color: #049372;
+    font-weight: bold;
+
+}
+
+
+
+
+/* ------ Change Panel Colors--------*/
+
+.panel-yellow {
+  border-color: gray;
+}
+.panel-yellow > .panel-heading {
+  color:#F7CA18;
+  background-color: #1C2B4A;
+  border-color:#1C2B4A;
+}
+
+
+.panel-footery {
+  padding: 10px 15px;
+  background-color: #F7CA18;
+  border-top: 1px solid #dddddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.txtpany{
+    color: #F7CA18;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+
+/* ------ Change Panel Colors--------*/
+
+
+.panel-red {
+  border-color: gray;
+}
+.panel-red  > .panel-heading {
+  color:#F89406;
+  background-color:#1C2B4A;
+  border-color: #1C2B4A;
+}
+
+
+.panel-footerr {
+  padding: 10px 15px;
+  background-color:#F89406;
+  border-top: 1px solid #dddddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.txtpanr{
+    color: #F89406;
+    font-weight: bold;
+}
+
+
+/* ------ Change Panel Colors--------*/
+
+
+
+/* ------ Change Panel Colors--------*/
+
+
+.panel-purple {
+  border-color: gray;
+}
+.panel-purple  > .panel-heading {
+  color:#8E44AD;
+  background-color:#1C2B4A;
+  border-color: #1C2B4A;
+}
+
+
+.panel-footerp {
+  padding: 10px 15px;
+  background-color:#8E44AD;
+  border-top: 1px solid #dddddd;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.txtpanp{
+    color: #8E44AD;
+    font-weight: bold;
+    font-size:14px;
+}
+
+
+/* ------ Change Panel Colors--------*/
+
+
+.panfoot{
+
+    color: white;
+}
+
+
+.pans{
+
+    color: white;
+
+}
+
+.pans:hover{
+
+    color: black;
+}
+
+
+
+/* ------ Change Panel Colors--------*/
+
+
+/* ------ Post.html--------*/
+
+#posbutt{
+
+
+    padding-bottom: 100px;
+}
+
+/* ------ Post.html--------*/
+
+
+/* ------ Bread Crumbs--------*/
+
+#breads{
+
+
+     font-size: 14px;
+     max-height: 10px;
+
+    vertical-align: middle;
+  
+
+}
+
+.alert {
+
+    height: 20px;
+    font-size: 12px;
+     vertical-align: middle;
+     font-weight: bold;
+}
+
+/* ------ Bread Crumbs--------*/
+
+
+.modal-header{
+    
+       height: 60px;
+             
+}
+
+
+
+/* ------ Tourist Attraction --------*/
+
+
+#tourtxt{
+
+font-size: 13px;
+
+}
+
+
+#linek{
+
+  height: 5px;
+ 
+  color: gray;
+  
+
+}
+
+#galmage{
+
+margin-left: 5px;
+}
+
+
+
+/* ------ Tourist Attraction --------*/
+
+
+
+
+
+
+
+
+/* ------ Chat --------*/
+
+#conso{
+
+  padding-bottom: 30px;
+}
+#chathead{
+
+height: 60px;
+
+
+}
+
+#less{
+
+  padding-bottom: 20px;
+}
+
+#chatxt{
+
+  font-size: 15px;
+
+}
+
+
+
+#logtitle{
+  padding-top: 10px;
+  height: 40px;
+
+}
+
+/* ------ Chat --------*/

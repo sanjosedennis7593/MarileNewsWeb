@@ -1,0 +1,495 @@
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+
+
+
+                         <h1 class="page-header animated bounceInRight">
+
+                          <small><i class="fa fa-fw fa-certificate fa-2x" id = "conhead"> </i></small>  Update Officials
+                        </h1>
+
+
+                        <ol class="breadcrumb animated bounceInRight" >
+                            <li class="active">
+                                Lets you edit the officials section.
+                            </li>
+                        </ol>
+
+                    </div>
+
+                </div>
+
+          
+
+
+                <!-- /.row -->
+
+                 <tabset>
+    <tab heading="Mayor">  
+
+    <div class="row">
+     <div class="col-lg-12">
+                  
+                  
+    <table class="table table-bordered table-hover">
+                                <thead>
+                                 <tr>  
+                  
+                                      <h1>Mayor</h1>
+                                           
+                                    </tr>
+                                       <th><center>Name</center></th>
+             
+                                        <th><center>Term</center></th>
+                                        <th><center>Image</center></th>
+                                        <th><center>Date added</center></th>
+                        
+                                        <th><center>Action</center></th>    
+                                </thead>
+                                <tbody>
+
+                                    <tr ng-repeat="officials in officials1" repeat-loading>
+                                        <td><center>{{officials.Lastname}},{{officials.Firstname}} {{officials.Initial}}</center></td>
+                       
+                                        <td><center>{{officials.Term}}</center></td>
+                                        <td><center><img src="{{officials.Image}}" width="75" height="75"></center></td>
+                                        <td><center>{{officials.DateAdded}}</center></td>
+                      
+                                        <td>
+                                        <center><a href="#" ng-click="editModal(officials)">Edit </a> / 
+                                        <a href  = "#"  ng-click="deleteOfficials(officials.Position,officials.$id)">Delete </a>  
+                                        </center>     
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                     <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="openMayorModal()">
+                    Update
+                    </button>
+
+
+    </div>
+
+
+    </div>
+
+    </tab>
+                <tab heading="Vice Mayor"> 
+
+                <div class="row">
+                <div class="col-lg-12">
+
+                    
+              <table class="table table-bordered table-hover">
+                                <thead>
+                                  <tr>  
+                            <h1>
+                                      Vice Mayor
+                            </h1>            
+                                    </tr>
+                               
+                                       <th><center>Name</center></th>
+                            
+                                        <th><center>Term</center></th>
+                                        <th><center>Image</center></th>
+                                        <th><center>Date added</center></th>
+                 
+                                        <th><center>Action</center></th>    
+                                </thead>
+                                <tbody>
+
+                                      <tr ng-repeat="officials in officials2" repeat-loading>
+                                        <td><center>{{officials.Lastname}},{{officials.Firstname}} {{officials.Initial}}</center></td>
+                   
+                                        <td><center>{{officials.Term}}</center></td>
+                                        <td><center><img src="{{officials.Image}}" width="75" height="75"></center></td>
+                                        <td><center>{{officials.DateAdded}}</center></td>
+              
+                                        <td>
+                                        <center><a href="#" ng-click="editModal(officials)">Edit </a> / 
+                                        <a href  = "#"  ng-click="deleteOfficials(officials.Position,officials.$id)">Delete </a>  
+                                        </center>     
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="openViceMayorModal()">
+                            Update
+                            </button>
+                </div>
+                </div>
+
+                </tab>
+
+                   <tab heading="Councilor"> 
+                      <div class="row">
+                       <div class="col-lg-12">
+                   
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>  
+                                       <h1>
+                                            Councilor
+                                        </h1>
+                                    </tr>
+                                       <th><center>Name</center></th>
+                                   
+                                        <th><center>Term</center></th>
+                                        <th><center>Image</center></th>
+                                        <th><center>Date added</center></th>
+          
+                                        <th><center>Action</center></th>    
+                                </thead>
+                                <tbody>
+
+                                      <tr ng-repeat="officials in officials3" repeat-loading>
+                                        <td><center>{{officials.Lastname}},{{officials.Firstname}} {{officials.Initial}}</center></td>
+                   
+                                        <td><center>{{officials.Term}}</center></td>
+                                        <td><center><img src="{{officials.Image}}" width="75" height="75"></center></td>
+                                        <td><center>{{officials.DateAdded}}</center></td>
+                     
+                                        <td>
+                                        <center><a href="#" ng-click="editModal(officials)">Edit </a> / 
+                                        <a href  = "#"  ng-click="deleteOfficials(officials.Position,officials.$id)">Delete </a>  
+                                        </center>     
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                               <button type="button" class="btn btn-primary btn-sm pull-right" ng-click="openModal()" ng-disabled="officials3.length>6">
+                               Update
+                               </button>
+                      </div>
+                      </div>
+                   </tab>
+
+  </tabset>
+
+
+
+<br><br><br>
+      
+      
+
+
+
+</div>
+<!-- end of container -->
+      
+
+
+<br><br><br>
+        
+
+
+
+<!-- Officials Modal-->
+
+<script type="text/ng-template" id="OfficialsModal.html">
+
+ <div class="modal-header">
+
+
+
+<ul class="list-inline" id = "countlist">
+
+  <li><i class="fa fa-fw fa-certificate fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Officials</h4> </li>
+ 
+</ul>
+      </div>
+
+
+
+
+      <div class="modal-body">
+       <h1>Officials</h1>
+       <center>
+       <form novalidate>
+
+    <img ng-src="{{officialsInfo.images[0]}}" width="100" height="100" ng-init="officialsInfo.images[0] = officialsDefault.image" />
+ <ul class = "list-inline">
+
+<li> 
+
+<span class="file-input btn btn-sm btn-primary btn-file">
+  Pick an image-file: <input type="file" ng-model="officialsInfo.images" accept="image/*" multiple app-filereader/>
+
+</span>
+</li>
+
+
+<li> 
+    <button ng-click="officialsInfo.images[0] = setDefault"  class = "file-input btn btn-sm btn-success">Set Default Image</button><br/>
+
+</li> 
+
+</ul>
+</form>
+ </center>
+
+        <div class="form-group">
+            
+            <div class="form-group">
+               <label>Lastname</label>
+               <input class="form-control input-sm" placeholder="Enter Lastname" ng-model="officialsInfo.lastname">
+           </div>
+
+           <div class="form-group">
+               <label>Firstname</label>
+               <input class="form-control input-sm" placeholder="Enter Firstname" ng-model="officialsInfo.firstname">
+           </div>
+
+           <div class="form-group">
+               <label>Initial</label>
+               <input class="form-control input-sm" placeholder="Enter Middlename" ng-model="officialsInfo.initial">
+           </div>
+
+               <div class="form-group">
+               <label>Position</label>
+        <input class="form-control input-sm" ng-model="officialsInfo.position='Councilor'"  id="disabledInput" disabled>
+                </div>
+
+           <div class="form-group">
+               <label>Term</label>
+<ul class = "list-inline">
+
+ <li> <input type="date" class="form-control" id="dp" ng-model="officialsInfo.start"/> </li> - 
+ <li> <input type="date" class="form-control" id="dp" ng-model="officialsInfo.end" /></li>
+
+</ul>
+
+           </div>
+
+           <div class="form-group">
+           <label>Profile</label>
+              <textarea class="form-control" placeholder="About Officials" ng-model="officialsInfo.description">
+              </textarea>
+           </div>
+        </div>
+      </div>
+      <div class="modal-footer" >
+      <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm" ng-click="saveOfficials()">Save</button>
+      </div>
+      </div>
+
+</script>
+
+<!-- Officials Modal-->
+
+
+<!-- Mayor Modal-->
+
+
+<script type="text/ng-template" id="MayorModal.html">
+<div class="modal-header">
+
+
+
+<ul class="list-inline" id = "countlist">
+
+  <li><i class="fa fa-fw fa-certificate fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Officials</h4> </li>
+ 
+</ul>
+      </div>
+
+
+
+
+      <div class="modal-body">
+          <h1>Mayor</h1>
+
+<center>
+       <form novalidate>
+
+    <img ng-src="{{officialsInfo.images[0]}}" width="100" height="100" ng-init="officialsInfo.images[0] = officialsDefault.image" />
+
+
+<ul class = "list-inline">
+
+  <li>  
+
+   <span class="file-input btn btn-sm btn-primary btn-file">
+
+   Pick an image-file: <input type="file" ng-model="officialsInfo.images" accept="image/*" multiple app-filereader/> 
+</span>
+   </li>
+
+
+  <li>  
+
+   <button ng-click="officialsInfo.images[0] = setDefault"  class = "file-input btn btn-sm btn-success">Set Default Image</button> 
+
+   </li>
+
+</ul>
+
+
+</form>
+</center>
+        <div class="form-group">
+        
+            <div class="form-group">
+               <label>Lastname</label>
+               <input class="form-control input-sm" placeholder="Enter Lastname" ng-model="officialsInfo.lastname">
+           </div>
+
+           <div class="form-group">
+               <label>Firstname</label>
+               <input class="form-control input-sm" placeholder="Enter Firstname" ng-model="officialsInfo.firstname">
+           </div>
+
+           <div class="form-group">
+               <label>Initial</label>
+               <input class="form-control input-sm" placeholder="Enter Middlename" ng-model="officialsInfo.initial">
+           </div>
+
+                <div class="form-group">
+               <label>Position</label>
+        <input class="form-control input-sm" placeholder="Enter Middlename" ng-model="officialsInfo.Position='Municipal Mayor'" id="disabledInput" disabled>
+                </div>
+
+           <div class="form-group">
+               <label>Term</label>
+<ul class = "list-inline">
+
+ <li> <input type="date" class="form-control" id="dp" ng-model="officialsInfo.start"/> </li> - 
+ <li> <input type="date" class="form-control" id="dp" ng-model="officialsInfo.end" /></li>
+
+</ul>
+
+           </div>
+
+           <div class="form-group">
+           <label>Profile</label>
+              <textarea class="form-control" placeholder="About Officials" ng-model="officialsInfo.profile">
+              </textarea>
+           </div>
+        </div>
+      </div>
+      <div class="modal-footer" >
+      <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm" ng-click="saveMayor()">Save</button>
+      </div>
+      </div>
+
+</script>
+
+<!-- Mayor Modal-->
+
+
+
+
+
+<!-- Vice Mayor Modal-->
+<script type="text/ng-template" id="ViceMayorModal.html">
+<div class="modal-header">
+
+
+
+<ul class="list-inline" id = "countlist">
+
+  <li><i class="fa fa-fw fa-certificate fa-2x" id = "consi"></i> </li>
+
+  <li><h4 class="modal-title" id="myModalLabel" id = "edinew">Officials</h4> </li>
+ 
+</ul>
+      </div>
+
+
+
+
+      <div class="modal-body">
+          <h1>Vice Mayor</h1>
+
+          <center>
+
+       <form novalidate>
+
+       <img ng-src="{{officialsInfo.images[0]}}" width="100" height="100" ng-init="officialsInfo.images[0] = officialsDefault.image" />
+
+<ul class = "list-inline">
+<li>
+    <span class="file-input btn btn-sm btn-primary btn-file">
+
+    Pick an image-file: <input type="file" ng-model="officialsInfo.images" accept="image/*" multiple app-filereader/>
+
+</span>
+</li>
+
+    
+
+ <li>
+
+    <button ng-click="officialsInfo.images[0] = setDefault" class = "file-input btn btn-sm btn-success">Set Default Image</button>
+</li>
+</ul>
+    
+</form>
+
+</center>
+        <div class="form-group">
+        
+            <div class="form-group">
+               <label>Lastname</label>
+               <input class="form-control input-sm" placeholder="Enter Lastname" ng-model="officialsInfo.lastname">
+           </div>
+
+           <div class="form-group">
+               <label>Firstname</label>
+               <input class="form-control input-sm" placeholder="Enter Firstname" ng-model="officialsInfo.firstname">
+           </div>
+
+           <div class="form-group">
+               <label>Initial</label>
+               <input class="form-control input-sm" placeholder="Enter Middlename" ng-model="officialsInfo.initial">
+           </div>
+
+            <div class="form-group">
+               <label>Position</label>
+           <input class="form-control input-sm" placeholder="Enter Position" ng-model="officialsInfo.Position='Municipal Vice Mayor'" id="disabledInput" disabled>
+                </div>
+
+           <div class="form-group">
+               <label>Term</label>
+<ul class = "list-inline">
+
+ <li> <input type="date" class="form-control" id="dp" ng-model="officialsInfo.start"/> </li> - 
+ <li> <input type="date" class="form-control" id="dp" ng-model="officialsInfo.end" /></li>
+
+</ul>
+
+           </div>
+
+           <div class="form-group">
+           <label>Profile</label>
+              <textarea class="form-control" placeholder="About Officials" ng-model="officialsInfo.profile">
+              </textarea>
+           </div>
+        </div>
+      </div>
+      <div class="modal-footer" >
+      <div class = "form-group">
+      <button type="button" class="btn btn-default btn-sm" ng-click="closeModal()">Close</button>  
+        <button type="button" class="btn btn-primary btn-sm" ng-click="saveViceMayor()">Save</button>
+      </div>
+      </div>
+
+</script>
+
+<!-- Vice Mayor Modal-->
